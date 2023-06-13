@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fresh Fruits and Prices</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- <style>
+      .price-overlay {
+        @apply absolute inset-0 flex flex-col items-center justify-center text-white text-lg font-bold bg-black bg-opacity-75 transition-opacity opacity-0 hover:opacity-100;
+      }
+    </style> -->
+  </head>
+  <body class="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500">
+    <h1 class="text-center text-3xl underline text-blue-700">Fresh Fruits and Prices</h1>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4"
+    >
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/apple.png" alt="Apples" class="mx-auto w-24" />
+          <div class="text-white">$5.75</div>
+        </div>
+        <h2 class="mt-2">Apples</h2>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img
+            src="img/strawberry.png"
+            alt="Strawberries"
+            class="mx-auto w-24"
+          />
+          <div class="text-white">$5.25</div>
+        </div>
+        <h2 class="mt-2">Strawberries</h2>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/apricot.png" alt="Apricots" class="mx-auto w-24" />
+          <div class="text-white">$6.38</div>
+        </div>
+        <h2 class="mt-2">Apricots</h2>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/pear.png" alt="Pears" class="mx-auto w-24" />
+          <div class="text-white">$3.75</div>
+        </div>
+        <h2 class="mt-2">Pears</h2>
+      </div>
+      <!-- Add more fruits here -->
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/banana.png" alt="Pears" class="mx-auto w-24" />
+          <div class="text-white">$4.50</div>
+        </div>
+        <h2 class="mt-2">Bananas</h2>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/cherry.png" alt="cherries" class="mx-auto w-24" />
+          <div class="text-white">$5.50</div>
+        </div>
+        <h2 class="mt-2">Cherries</h2>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/grape.png" alt="cherries" class="mx-auto w-24" />
+          <div class="text-white">$5.20</div>
+        </div>
+        <h2 class="mt-2">Grapes</h2>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/blackberry.png" alt="cherries" class="mx-auto w-24" />
+          <div class="text-white">$5.25</div>
+        </div>
+        <h2 class="mt-2">Blackberries</h2>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/cantaloupe.png" alt="cherries" class="mx-auto w-24" />
+          <div class="text-white">$5.50</div>
+        </div>
+        <h2 class="mt-2">Cantaloupe</h2>
+      </div>
+      <div class="relative text-center">
+          <div class="relative">
+              <img src="img/orange.png" alt="cherries" class="mx-auto w-24" />
+              <div class="text-white">$4.70</div>
+            </div>
+            <h2 class="mt-2">Oranges</h2>
+        </div>
+        <div class="relative text-center">
+            <div class="relative">
+                <img src="img/watermelon.png" alt="cherries" class="mx-auto w-24" />
+                <div class="text-white">$598.65/oz💰</div>
+            </div>
+            <h2 class="mt-2">Watermelon</h2>
+        </div>
+    </div>
+  </div>
+
+
+
+    </div>
+
+    <!-- <script>
+      // Show/hide price overlay on hover
+      const priceOverlays = document.querySelectorAll('.price-overlay');
+      priceOverlays.forEach((overlay) => {
+        overlay.addEventListener('mouseenter', () => {
+          overlay.style.opacity = '1';
+        });
+        overlay.addEventListener('mouseleave', () => {
+          overlay.style.opacity = '0';
+        });
+      });
+    </script> -->
+  </body>
+</html>
