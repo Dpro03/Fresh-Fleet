@@ -1,11 +1,11 @@
 console.log('Hello World!');
 const btn = document.querySelector('#menu-btn');
 const nav = document.querySelector('#menu');
-// btn.addEventListener("click", () => {
-//     btn.classList.toggle("open");
-//     nav.classList.toggle("flex");
-//     nav.classList.toggle("hidden");
-// })
+btn.addEventListener("click", () => {
+    btn.classList.toggle("open");
+    nav.classList.toggle("flex");
+    nav.classList.toggle("hidden");
+})
 const addEventListener = () => {
   btn.addEventListener('click', () => {
     btn.classList.toggle('open');

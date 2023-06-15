@@ -3,246 +3,260 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fresh Fruits</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <title>Vegetable Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <style>
-      .cart-container {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #fff;
-        padding: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-        max-height: 200px;
-        overflow-y: auto;
-      }
-
-      .cart-container h2 {
-        margin-top: 6;
-      }
-
-      .cart-container ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .cart-container li {
-        margin-bottom: 5px;
-      }
-
-      .remove-button {
-        background-color: #ff0000;
-        color: #fff;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .remove-button:hover {
-        background-color: #cc0000;
-      }
-    </style>
+        .cart-container {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #fff;
+          padding: 20px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          border-radius: 8px;
+          max-height: 200px;
+          overflow-y: auto;
+        }
+  
+        .cart-container h2 {
+          margin-top: 6;
+        }
+  
+        .cart-container ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+  
+        .cart-container li {
+          margin-bottom: 5px;
+        }
+  
+        .remove-button {
+          background-color: #523b3b;
+          color: #fff;
+          border: none;
+          margin-left: 8px;
+          padding: 1px 1px;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-top: 8px;
+          margin-bottom: 8px;
+        }
+  
+        .remove-button:hover {
+          background-color: #cc0000;
+        }
+        .button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px; /* Adjust the padding value as needed */
+  }
+      </style>
+  
   </head>
-  <body class="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500">
-    <div class="cart-container">
-      <h2>Cart:</h2>
-      <ul id="cart"></ul>
-    </div>
-
-    <div class="flex justify-center mt-2">
-      <a
-        href="index.html"
-        class="text-white bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-md"
-      >
-        Home
-      </a>
-    </div>
-    <h1 class="text-center text-3xl mt-12 underline text-blue-700">
-      Fresh Fruits
-    </h1>
-    <div class="flex justify-end mt-2">
-      <a
-        id="veggies"
-        href="veggies.html"
-        class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md"
-      >
-        Veggies →
-      </a>
-    </div>
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4"
-    >
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/apple.png" alt="Apples" class="mx-auto w-24" />
-          <div class="text-white">$5.75</div>
+  <body class="bg bg-gradient-to-r from-green-500 via-yellow-500 to-red-500  text-white py-8">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-8">Fresh Fruits</h1>
+      <div class="flex justify-end">
+        <div class="button-container">
+          <a id="more" href="veggies.html" class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md">
+            Veggies →
+          </a>
         </div>
-        <h2 class="mt-2">Apples</h2>
-        <button class="add-to-cart" data-item="Apples">Add to Cart</button>
+      </div>      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="relative text-center">
+          <div class="relative">
+            <img src="img/tomato.png" alt="Tomato" class="mx-auto w-24" />
+            <div class="text-white">$1.50</div>
+          </div>
+          <h2 class="mt-2">Tomato</h2>
+          <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Tomato" data-price="1.50">Add to Cart</button>
+        </div>
+        <div class="relative text-center">
+          <div class="relative">
+            <img src="img/potato.png" alt="Potato" class="mx-auto w-24" />
+            <div class="text-white">$1.25</div>
+          </div>
+          <h2 class="mt-2">Potato</h2>
+          <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Potato" data-price="1.25">Add to Cart</button>
+        </div>
+        <div class="relative text-center">
+          <div class="relative">
+            <img src="img/onion.png" alt="Onion" class="mx-auto w-24" />
+            <div class="text-white">$1.00</div>
+          </div>
+          <h2 class="mt-2">Onion</h2>
+          <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Onion" data-price="1.00">Add to Cart</button>
+        </div>
+        <div class="relative text-center">
+            <div class="relative">
+              <img src="img/cauliflower.png" alt="cauliflower" class="mx-auto w-24" />
+              <div class="text-white">$3.50</div>
+            </div>
+            <h2 class="mt-2">Cauliflower</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Cauliflower" data-price="3.50">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/broccoli.png" alt="broccoli" class="mx-auto w-24" />
+              <div class="text-white">$3.25</div>
+            </div>
+            <h2 class="mt-2">Broccoli</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Broccoli" data-price="3.25">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/onion.png" alt="Onion" class="mx-auto w-24" />
+              <div class="text-white">$1.00</div>
+            </div>
+            <h2 class="mt-2">Onion</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Onion" data-price="1.00">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/tomato.png" alt="Tomato" class="mx-auto w-24" />
+              <div class="text-white">$1.50</div>
+            </div>
+            <h2 class="mt-2">Tomato</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Tomato" data-price="1.50">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/potato.png" alt="Potato" class="mx-auto w-24" />
+              <div class="text-white">$1.25</div>
+            </div>
+            <h2 class="mt-2">Potato</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Potato" data-price="1.25">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/onion.png" alt="Onion" class="mx-auto w-24" />
+              <div class="text-white">$1.00</div>
+            </div>
+            <h2 class="mt-2">Onion</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Onion" data-price="1.00">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/tomato.png" alt="Tomato" class="mx-auto w-24" />
+              <div class="text-white">$1.50</div>
+            </div>
+            <h2 class="mt-2">Tomato</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Tomato" data-price="1.50">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/potato.png" alt="Potato" class="mx-auto w-24" />
+              <div class="text-white">$3.25</div>
+            </div>
+            <h2 class="mt-2">Potato</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Potato" data-price="3.25">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/onion.png" alt="Onion" class="mx-auto w-24" />
+              <div class="text-white">$1.00</div>
+            </div>
+            <h2 class="mt-2">Onion</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Onion" data-price="1.00">Add to Cart</button>
+          </div>
+  
+  
+      </div> 
+       
+        <!-- Add more vegetable items here -->
       </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img
-            src="img/strawberry.png"
-            alt="Strawberries"
-            class="mx-auto w-24"
-          />
-          <div class="text-white">$5.25</div>
+      <div class="mt-8">
+        <h2 class="text-xl font-bold">Cart</h2>
+        <ul class="mt-4" id="cart-items"></ul>
+        <div class="mt-4">
+          <h2 class="font-bold">Total Price: $<span id="total-price">0.00</span></h2>
         </div>
-        <h2 class="mt-2">Strawberries</h2>
-        <button class="add-to-cart" data-item="Strawberries">
-          Add to Cart
-        </button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/apricot.png" alt="Apricots" class="mx-auto w-24" />
-          <div class="text-white">$6.38</div>
-        </div>
-        <h2 class="mt-2">Apricots</h2>
-        <button class="add-to-cart" data-item="Apricots">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/pear.png" alt="Pears" class="mx-auto w-24" />
-          <div class="text-white">$3.75</div>
-        </div>
-        <h2 class="mt-2">Pears</h2>
-        <button class="add-to-cart" data-item="Pears">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/banana.png" alt="Bananas" class="mx-auto w-24" />
-          <div class="text-white">$4.50</div>
-        </div>
-        <h2 class="mt-2">Bananas</h2>
-        <button class="add-to-cart" data-item="Bananas">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/cherry.png" alt="Cherries" class="mx-auto w-24" />
-          <div class="text-white">$5.50</div>
-        </div>
-        <h2 class="mt-2">Cherries</h2>
-        <button class="add-to-cart" data-item="Cherries">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/grape.png" alt="Grapes" class="mx-auto w-24" />
-          <div class="text-white">$5.20</div>
-        </div>
-        <h2 class="mt-2">Grapes</h2>
-        <button class="add-to-cart" data-item="Grapes">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img
-            src="img/blackberry.png"
-            alt="Blackberries"
-            class="mx-auto w-24"
-          />
-          <div class="text-white">$5.25</div>
-        </div>
-        <h2 class="mt-2">Blackberries</h2>
-        <button class="add-to-cart" data-item="Blackberries">
-          Add to Cart
-        </button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/cantaloupe.png" alt="Cantaloupe" class="mx-auto w-24" />
-          <div class="text-white">$5.50</div>
-        </div>
-        <h2 class="mt-2">Cantaloupe</h2>
-        <button class="add-to-cart" data-item="Cantaloupe">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/orange.png" alt="Oranges" class="mx-auto w-24" />
-          <div class="text-white">$4.70</div>
-        </div>
-        <h2 class="mt-2">Oranges</h2>
-        <button class="add-to-cart" data-item="Oranges">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/watermelon.png" alt="Watermelon" class="mx-auto w-24" />
-          <div class="text-white">$598.65/oz💰</div>
-        </div>
-        <h2 class="mt-2">Watermelon</h2>
-        <button class="add-to-cart" data-item="Watermelon">Add to Cart</button>
       </div>
     </div>
 
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const addToCartButtons = document.querySelectorAll('.add-to-cart');
-  const cart = document.getElementById('cart');
-
-  // Load cart items from session storage on page load
-  loadCartItems();
-
-  addToCartButtons.forEach(function(button) {
-    button.addEventListener('click', addToCartClicked);
-  });
-
-  function addToCartClicked(event) {
-    console.log('Button clicked');
-    const item = event.target.dataset.item;
-    addItemToCart(item);
-    saveCartItems(); // Save cart items to session storage
-  }
-
-  function addItemToCart(item) {
-    console.log('Adding item to cart:', item);
-    const cartItem = document.createElement('li');
-    cartItem.innerText = item;
-
-    const removeButton = document.createElement('button');
-    removeButton.innerText = 'Remove';
-    removeButton.className = 'remove-button';
-    removeButton.addEventListener('click', removeCartItem);
-    cartItem.appendChild(removeButton);
-
-    cart.appendChild(cartItem);
-  }
-
-  function removeCartItem(event) {
-    const buttonClicked = event.target;
-    buttonClicked.parentElement.remove();
-    saveCartItems(); // Save cart items to session storage
-  }
-
-  function saveCartItems() {
-    const cartItems = Array.from(cart.children).map(function(item) {
-      return item.innerText.replace('Remove', '').trim();
-    });
-    sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }
-
-  function loadCartItems() {
-    clearCart(); // Clear existing cart items before loading from session storage
-    const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
-    cartItems.forEach(function(item) {
-      addItemToCart(item);
-    });
-  }
-
-  function clearCart() {
-    while (cart.firstChild) {
-      cart.firstChild.remove();
-    }
-  }
-});
-
+      const cartItemsElement = document.getElementById('cart-items');
+      const addToCartButtons = document.getElementsByClassName('add-to-cart');
+      const totalPriceElement = document.getElementById('total-price');
+      let totalPrice = 0;
+    
+      // Load cart items from local storage on page load
+      loadCartItems();
+    
+      // Add event listener to each "Add to Cart" button
+      Array.from(addToCartButtons).forEach(function (button) {
+        button.addEventListener('click', function () {
+          const itemName = button.getAttribute('data-item');
+          const itemPrice = parseFloat(button.getAttribute('data-price'));
+          const newItem = document.createElement('li');
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Remove';
+          removeButton.classList.add('remove-item', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md', 'ml-4', 'mr-2', 'mt-1');
+          newItem.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+          newItem.appendChild(removeButton);
+          cartItemsElement.appendChild(newItem);
+          totalPrice += itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+          saveCartItem(itemName, itemPrice); // Save cart item to local storage
+        });
+      });
+    
+      // Remove item event listener
+      cartItemsElement.addEventListener('click', function (event) {
+        if (event.target.classList.contains('remove-item')) {
+          const itemElement = event.target.parentNode;
+          const itemName = itemElement.textContent.split(' - $')[0];
+          const itemPrice = parseFloat(itemElement.textContent.split(' - $')[1]);
+          totalPrice -= itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+          itemElement.remove();
+          removeCartItem(itemName); // Remove cart item from local storage
+        }
+      });
+    
+      // Load cart items from local storage
+      function loadCartItems() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.forEach(function (itemName) {
+          const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
+          const newItem = document.createElement('li');
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Remove';
+          removeButton.classList.add('remove-item', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md', 'ml-4', 'mr-2', 'mt-1');
+          newItem.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+          newItem.appendChild(removeButton);
+          cartItemsElement.appendChild(newItem);
+          totalPrice += itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+        });
+      }
+    
+      // Save cart item to local storage
+      function saveCartItem(itemName, itemPrice) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        if (!cartItems.includes(itemName)) {
+          cartItems.push(itemName);
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+        localStorage.setItem(`price-${itemName}`, itemPrice);
+      }
+    
+      // Remove cart item from local storage
+      function removeCartItem(itemName) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const index = cartItems.indexOf(itemName);
+        if (index > -1) {
+          cartItems.splice(index, 1);
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+          localStorage.removeItem(`price-${itemName}`);
+        }
+      }
     </script>
+                            
 
-    <script src="script.js"></script>
+
+      
   </body>
 </html>

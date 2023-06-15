@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .product {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .product-info {
+            flex-grow: 1;
+        }
+
+        .product-image {
+            width: 100px;
+            height: auto;
+        }
+
+        .product-title {
+            margin-top: 0;
+        }
+
+        .product-price {
+            font-weight: bold;
+        }
+
+        .add-to-cart {
+            display: block;
+            margin-top: 10px;
+        }
+        .remove-button {
+            background-color: #c81515;
+            color: #fff;
+            border: none;
+            margin-left: 8px;
+            padding: 1px 1px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Product Page</title>
+</head>
+<body>
+    <h1>Product Page</h1>
+
+    <div class="product">
+        <div class="product-info">
+            <img src="img/broccoli.png" alt="Product Image" class="product-image">
+            <h3 class="product-title">Broccoli</h3>
+            <div class="product-price">$9.99</div>
+        </div>
+        <button class="add-to-cart" data-item="Broccoli">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <div class="product-info">
+            <img src="img/apricot.png" alt="Product Image" class="product-image">
+            <h3 class="product-title">Apricots</h3>
+            <div class="product-price">$14.99</div>
+        </div>
+        <button class="add-to-cart" data-item="Apricots">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <div class="product-info">
+            <img src="img/apple.png" alt="Product Image" class="product-image">
+            <h3 class="product-title">Apples</h3>
+            <div class="product-price">$19.99</div>
+        </div>
+        <button class="add-to-cart" data-item="Apples">Add to Cart</button>
+    </div>
+    <ul id="cart"></ul>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cart = document.getElementById('cart');
+
+            addToCartButtons.forEach(function(button) {
+                button.addEventListener('click', addToCartClicked);
+            });
+
+            function addToCartClicked(event) {
+                const item = event.target.dataset.item;
+                addItemToCart(item);
+            }
+
+            function addItemToCart(item) {
+                const cartItem = document.createElement('li');
+                cartItem.innerText = item;
+
+                const removeButton = document.createElement('button');
+                removeButton.innerText = 'Remove';
+                removeButton.className = 'remove-button';
+                removeButton.addEventListener('click', removeCartItem);
+                cartItem.appendChild(removeButton);
+
+                cart.appendChild(cartItem);
+            }
+
+            function removeCartItem(event) {
+                const buttonClicked = event.target;
+                buttonClicked.parentElement.remove();
+            }
+        });
+    </script>
+</body>
+</html>

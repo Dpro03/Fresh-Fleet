@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .product {
+        width: 150px;
+        text-align: center;
+        margin: 10px;
+      }
+
+      .product img {
+        width: 100px;
+      }
+
+      .product h2 {
+        margin: 5px 0;
+      }
+
+      .product .price {
+        margin: 5px 0;
+      }
+
+      .cart-container {
+        background-color: #f2f2f2;
+        padding: 10px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .cart-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .cart {
+        list-style-type: none;
+        text-align: center;
+        padding: 0;
+      }
+
+      .cart li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 5px 0;
+      }
+
+      .remove-button {
+        background-color: #c81515;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .remove-button:hover {
+        background-color: #cc0000;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500">
+    <div class="container">
+      <div class="product">
+        <div class="image">
+          <img src="img/apple.png" alt="apple" />
+        </div>
+        <h2>Apple</h2>
+        <div class="price">$2.50</div>
+        <button class="add-to-cart" data-item="Apple">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/banana.png" alt="banana" />
+        </div>
+        <h2>Banana</h2>
+        <div class="price">$1.75</div>
+        <button class="add-to-cart" data-item="Banana">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/orange.png" alt="orange" />
+        </div>
+        <h2>Orange</h2>
+        <div class="price">$3.00</div>
+        <button class="add-to-cart" data-item="Orange">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/grape.png" alt="grape" />
+        </div>
+        <h2>Grape</h2>
+        <div class="price">$4.00</div>
+        <button class="add-to-cart" data-item="Grape">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/apple.png" alt="apple" />
+        </div>
+        <h2>Apple</h2>
+        <div class="price">$2.50</div>
+        <button class="add-to-cart" data-item="Apple">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/banana.png" alt="banana" />
+        </div>
+        <h2>Banana</h2>
+        <div class="price">$1.75</div>
+        <button class="add-to-cart" data-item="Banana">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/orange.png" alt="orange" />
+        </div>
+        <h2>Orange</h2>
+        <div class="price">$3.00</div>
+        <button class="add-to-cart" data-item="Orange">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/grape.png" alt="grape" />
+        </div>
+        <h2>Grape</h2>
+        <div class="price">$4.00</div>
+        <button class="add-to-cart" data-item="Grape">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/apple.png" alt="apple" />
+        </div>
+        <h2>Apple</h2>
+        <div class="price">$2.50</div>
+        <button class="add-to-cart" data-item="Apple">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/banana.png" alt="banana" />
+        </div>
+        <h2>Banana</h2>
+        <div class="price">$1.75</div>
+        <button class="add-to-cart" data-item="Banana">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/orange.png" alt="orange" />
+        </div>
+        <h2>Orange</h2>
+        <div class="price">$3.00</div>
+        <button class="add-to-cart" data-item="Orange">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/grape.png" alt="grape" />
+        </div>
+        <h2>Grape</h2>
+        <div class="price">$4.00</div>
+        <button class="add-to-cart" data-item="Grape">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/apple.png" alt="apple" />
+        </div>
+        <h2>Apple</h2>
+        <div class="price">$2.50</div>
+        <button class="add-to-cart" data-item="Apple">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/banana.png" alt="banana" />
+        </div>
+        <h2>Banana</h2>
+        <div class="price">$1.75</div>
+        <button class="add-to-cart" data-item="Banana">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/orange.png" alt="orange" />
+        </div>
+        <h2>Orange</h2>
+        <div class="price">$3.00</div>
+        <button class="add-to-cart" data-item="Orange">Add to Cart</button>
+      </div>
+      <div class="product">
+        <div class="image">
+          <img src="img/grape.png" alt="grape" />
+        </div>
+        <h2>Grape</h2>
+        <div class="price">$4.00</div>
+        <button class="add-to-cart" data-item="Grape">Add to Cart</button>
+      </div>
+
+
+
+    </div>
+    
+    <div class="cart-container">
+      <h2 class="cart-title">Cart:</h2>
+      <ul class="cart" id="cart"></ul>
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cart = document.getElementById('cart');
+
+        // Load cart items from session storage on page load
+        loadCartItems();
+
+        addToCartButtons.forEach(function (button) {
+          button.addEventListener('click', addToCartClicked);
+        });
+
+        function addToCartClicked(event) {
+          const item = event.target.dataset.item;
+          addItemToCart(item);
+          saveCartItems(); // Save cart items to session storage
+        }
+
+        function addItemToCart(item) {
+          const cartItem = document.createElement('li');
+          cartItem.innerHTML = `
+            <span>${item}</span>
+            <button class="remove-button">Remove</button>
+          `;
+          cartItem.querySelector('.remove-button').addEventListener('click', removeCartItem);
+          cart.appendChild(cartItem);
+        }
+
+        function removeCartItem(event) {
+          const buttonClicked = event.target;
+          buttonClicked.parentElement.remove();
+          saveCartItems(); // Save cart items to session storage
+        }
+
+        function saveCartItems() {
+          const cartItems = Array.from(cart.children).map(function (item) {
+            return item.firstChild.textContent.trim();
+          });
+          sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+
+        function loadCartItems() {
+          clearCart(); // Clear existing cart items before loading from session storage
+          const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
+          cartItems.forEach(function (item) {
+            addItemToCart(item);
+          });
+        }
+
+        function clearCart() {
+          while (cart.firstChild) {
+            cart.firstChild.remove();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
