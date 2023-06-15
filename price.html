@@ -63,7 +63,9 @@
         Home
       </a>
     </div>
-    <h1 class="text-center text-3xl mt-12 underline text-blue-700">Fresh Fruits</h1>
+    <h1 class="text-center text-3xl mt-12 underline text-blue-700">
+      Fresh Fruits
+    </h1>
     <div class="flex justify-end mt-2">
       <a
         id="veggies"
@@ -73,7 +75,9 @@
         Veggies →
       </a>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4"
+    >
       <div class="relative text-center">
         <div class="relative">
           <img src="img/apple.png" alt="Apples" class="mx-auto w-24" />
@@ -84,11 +88,17 @@
       </div>
       <div class="relative text-center">
         <div class="relative">
-          <img src="img/strawberry.png" alt="Strawberries" class="mx-auto w-24" />
+          <img
+            src="img/strawberry.png"
+            alt="Strawberries"
+            class="mx-auto w-24"
+          />
           <div class="text-white">$5.25</div>
         </div>
         <h2 class="mt-2">Strawberries</h2>
-        <button class="add-to-cart" data-item="Strawberries">Add to Cart</button>
+        <button class="add-to-cart" data-item="Strawberries">
+          Add to Cart
+        </button>
       </div>
       <div class="relative text-center">
         <div class="relative">
@@ -132,11 +142,17 @@
       </div>
       <div class="relative text-center">
         <div class="relative">
-          <img src="img/blackberry.png" alt="Blackberries" class="mx-auto w-24" />
+          <img
+            src="img/blackberry.png"
+            alt="Blackberries"
+            class="mx-auto w-24"
+          />
           <div class="text-white">$5.25</div>
         </div>
         <h2 class="mt-2">Blackberries</h2>
-        <button class="add-to-cart" data-item="Blackberries">Add to Cart</button>
+        <button class="add-to-cart" data-item="Blackberries">
+          Add to Cart
+        </button>
       </div>
       <div class="relative text-center">
         <div class="relative">
@@ -164,43 +180,68 @@
       </div>
     </div>
 
-
     <script>
-      // Get all the buttons with the class 'add-to-cart'
-      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+document.addEventListener('DOMContentLoaded', function() {
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+  const cart = document.getElementById('cart');
 
-      // Add a click event listener to each button
-      addToCartButtons.forEach((button) => {
-        button.addEventListener('click', addToCart);
-      });
+  // Load cart items from session storage on page load
+  loadCartItems();
 
-      // Function to handle the click event and add the item to the cart
-      function addToCart(event) {
-        const button = event.target;
-        const item = button.dataset.item;
-        const cart = document.getElementById('cart');
+  addToCartButtons.forEach(function(button) {
+    button.addEventListener('click', addToCartClicked);
+  });
 
-        const li = document.createElement('li');
-        li.innerText = item;
+  function addToCartClicked(event) {
+    console.log('Button clicked');
+    const item = event.target.dataset.item;
+    addItemToCart(item);
+    saveCartItems(); // Save cart items to session storage
+  }
 
-        const removeButton = document.createElement('button');
-        removeButton.classList.add('remove-button');
-        removeButton.innerText = 'Remove';
-        removeButton.addEventListener('click', removeFromCart);
+  function addItemToCart(item) {
+    console.log('Adding item to cart:', item);
+    const cartItem = document.createElement('li');
+    cartItem.innerText = item;
 
-        li.appendChild(removeButton);
-        cart.appendChild(li);
-      }
+    const removeButton = document.createElement('button');
+    removeButton.innerText = 'Remove';
+    removeButton.className = 'remove-button';
+    removeButton.addEventListener('click', removeCartItem);
+    cartItem.appendChild(removeButton);
 
-      // Function to handle the click event and remove the item from the cart
-      function removeFromCart(event) {
-        const button = event.target;
-        const li = button.parentElement;
-        const cart = li.parentElement;
-        cart.removeChild(li);
-      }
+    cart.appendChild(cartItem);
+  }
+
+  function removeCartItem(event) {
+    const buttonClicked = event.target;
+    buttonClicked.parentElement.remove();
+    saveCartItems(); // Save cart items to session storage
+  }
+
+  function saveCartItems() {
+    const cartItems = Array.from(cart.children).map(function(item) {
+      return item.innerText.replace('Remove', '').trim();
+    });
+    sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }
+
+  function loadCartItems() {
+    clearCart(); // Clear existing cart items before loading from session storage
+    const cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
+    cartItems.forEach(function(item) {
+      addItemToCart(item);
+    });
+  }
+
+  function clearCart() {
+    while (cart.firstChild) {
+      cart.firstChild.remove();
+    }
+  }
+});
+
     </script>
-
 
     <script src="script.js"></script>
   </body>

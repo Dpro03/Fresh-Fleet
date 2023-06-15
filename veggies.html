@@ -170,41 +170,67 @@
         <button class="add-to-cart" data-item="Peppers">Add to Cart</button>
       </div>
     </div>
-
     <script>
-      // Get all the buttons with the class 'add-to-cart'
-      const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-      // Add a click event listener to each button
-      addToCartButtons.forEach((button) => {
-        button.addEventListener('click', addToCart);
-      });
-
-      // Function to handle the click event and add the item to the cart
-      function addToCart(event) {
-        const button = event.target;
-        const item = button.dataset.item;
+      document.addEventListener('DOMContentLoaded', function () {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
         const cart = document.getElementById('cart');
 
-        const li = document.createElement('li');
-        li.innerText = item;
+        // Load cart items from session storage on page load
+        loadCartItems();
 
-        const removeButton = document.createElement('button');
-        removeButton.classList.add('remove-button');
-        removeButton.innerText = 'Remove';
-        removeButton.addEventListener('click', removeFromCart);
+        addToCartButtons.forEach(function (button) {
+          button.addEventListener('click', addToCartClicked);
+        });
 
-        li.appendChild(removeButton);
-        cart.appendChild(li);
-      }
+        function addToCartClicked(event) {
+          console.log('Button clicked');
+          const item = event.target.dataset.item;
+          addItemToCart(item);
+          saveCartItems(); // Save cart items to session storage
+        }
 
-      // Function to handle the click event and remove the item from the cart
-      function removeFromCart(event) {
-        const button = event.target;
-        const li = button.parentElement;
-        const cart = li.parentElement;
-        cart.removeChild(li);
-      }
+        function addItemToCart(item) {
+          console.log('Adding item to cart:', item);
+          const cartItem = document.createElement('li');
+          cartItem.innerText = item;
+
+          const removeButton = document.createElement('button');
+          removeButton.innerText = 'Remove';
+          removeButton.className = 'remove-button';
+          removeButton.addEventListener('click', removeCartItem);
+          cartItem.appendChild(removeButton);
+
+          cart.appendChild(cartItem);
+        }
+
+        function removeCartItem(event) {
+          const buttonClicked = event.target;
+          buttonClicked.parentElement.remove();
+          saveCartItems(); // Save cart items to session storage
+        }
+
+        function saveCartItems() {
+          const cartItems = Array.from(cart.children).map(function (item) {
+            return item.innerText.replace('Remove', '').trim();
+          });
+          sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+
+        function loadCartItems() {
+          clearCart(); // Clear existing cart items before loading from session storage
+          const cartItems =
+            JSON.parse(sessionStorage.getItem('cartItems')) || [];
+          cartItems.forEach(function (item) {
+            addItemToCart(item);
+          });
+        }
+
+        function clearCart() {
+          while (cart.firstChild) {
+            cart.firstChild.remove();
+          }
+        }
+      });
     </script>
     <script src="script.js"></script>
   </body>
