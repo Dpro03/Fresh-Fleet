@@ -14,12 +14,13 @@
       <div class="flex items-center justify-between">
         <div class="pt-2 ml-0 flex flex-col-2 text-4xl">
           Fresh-Fleet
-          <img class="w-16" src="img/logo1.png" alt="grocerycart" />
+          <img class="w-16 mr-8" src="img/logo1.png" alt="grocerycart" />
         </div>
         <!-- menu items -->
         <div class="hidden md:flex space-x-6">
-          <a href="#" id="price" class="hover:text-darkGrayishBlue">Pricing</a>
-          <a href="#" class="hover:text-darkGrayishBlue">Products</a>
+          <a href="#" id="home" class="hover:text-darkGrayishBlue">Home</a>
+          <a href="#" id="price" class="hover:text-darkGrayishBlue">Products</a>
+          <!-- <a href="#" class="hover:text-darkGrayishBlue">Products</a> -->
           <a href="#" id="about" class="hover:text-darkGrayishBlue">About Us</a>
           <a href="#" class="hover:text-darkGrayishBlue">Careers</a>
           <a href="#" class="hover:text-darkGrayishBlue">Community</a>
@@ -30,6 +31,26 @@
           class="hidden md:block p-3 px-6 pt-2 text-white bg-darkBlue rounded-full baseline hover:bg-darkGrayishBlue"
           >Get Started</a
         >
+
+        <!-- hamburger icon-->
+        <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+          <span class="hamburger-top"></span>
+          <span class="hamburger-middle"></span>
+          <span class="hamburger-bottom"></span>
+        </button>
+      </div>
+
+        <!-- mobile menu -->
+        <div id="mobile-menu" class="md:hidden">
+          <div id="menu" class="hidden absolute flex-col items-center self-end
+          space-y-4 mt-2 py-8 font-bold bg-white sm:w-auto sm:self-center
+          left-6 right-6 drop-shadow-md">
+            <a href="#" id="home1" class="hover:text-darkGrayishBlue">Home</a>
+            <a href="#" id="price1" class="hover:text-darkGrayishBlue">Products</a>
+            <a href="#" id="about1" class="hover:text-darkGrayishBlue">About Us</a>
+            <a href="#" id="careers1" class="hover:text-darkGrayishBlue">Careers</a>
+            <a href="#" id="community1" class="hover:text-darkGrayishBlue">Community</a>
+        </div>
       </div>
     </nav>
     <!-- hero section -->
@@ -167,6 +188,31 @@
             
       </div>
     </section>
+    <!-- footer -->
+    <footer class="bg-gray-800 py-6">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex space-x-6"> <!-- Social icons on the left -->
+          <!-- social icons -->
+          <a href="#" class="hover:text-darkGrayishBlue">
+            <img class="h-12 w-12" src="img/facebook-logo.png" alt="facebook icon" />
+          </a>
+          <a href="#" class="hover:text-darkGrayishBlue">
+            <img class="h-12 w-12" src="img/instagram.png" alt="instagram icon" />
+          </a>
+          <a href="#" class="hover:text-darkGrayishBlue">
+            <img class="h-12 w-12" src="img/twitter-sign.png" alt="twitter icon" />
+          </a>
+          <a href="#" class="hover:text-darkGrayishBlue">
+            <img class="h-12 w-12" src="img/play.png" alt="youtube icon" />
+          </a>
+        </div>
+        <div class="flex"> <!-- Fresh-Fleet 2023 on the right -->
+          <p class="text-3xl text-white ml-auto">© Fresh-Fleet 2023</p>
+        </div>
+      </div>
+    </footer>
+        
+
     <script src="script.js"></script>
   </body>
 </html>

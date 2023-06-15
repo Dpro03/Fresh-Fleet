@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fresh Fruits</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="style.css" />
     <style>
       .cart-container {
         position: fixed;
@@ -48,7 +44,9 @@
         background-color: #cc0000;
       }
     </style>
+    <title>Veggies</title>
   </head>
+
   <body class="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500">
     <div class="cart-container">
       <h2>Cart:</h2>
@@ -63,107 +61,115 @@
         Home
       </a>
     </div>
-    <h1 class="text-center text-3xl mt-12 underline text-blue-700">Fresh Fruits</h1>
-    <div class="flex justify-end mt-2">
+    <h1 class="text-center text-3xl mt-12 underline text-blue-700">
+      Fresh Veggies
+    </h1>
+    <div class="flex justify-between mt--8">
       <a
-        id="veggies"
-        href="veggies.html"
+        id="prices"
+        href="price.html"
         class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md"
       >
-        Veggies →
+        ← Fruit
+      </a>
+      <a
+        id="veggies"
+        href="more.html"
+        class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md"
+      >
+        More stuff →
       </a>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4"
+    >
+      <!-- Veggie items here -->
       <div class="relative text-center">
         <div class="relative">
-          <img src="img/apple.png" alt="Apples" class="mx-auto w-24" />
-          <div class="text-white">$5.75</div>
-        </div>
-        <h2 class="mt-2">Apples</h2>
-        <button class="add-to-cart" data-item="Apples">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/strawberry.png" alt="Strawberries" class="mx-auto w-24" />
+          <img src="img/broccoli.png" alt="Broccoli" class="mx-auto w-24" />
           <div class="text-white">$5.25</div>
         </div>
-        <h2 class="mt-2">Strawberries</h2>
-        <button class="add-to-cart" data-item="Strawberries">Add to Cart</button>
+        <h2 class="mt-2">Broccoli</h2>
+        <button class="add-to-cart" data-item="Broccoli">Add to Cart</button>
       </div>
       <div class="relative text-center">
         <div class="relative">
-          <img src="img/apricot.png" alt="Apricots" class="mx-auto w-24" />
+          <img
+            src="img/cauliflower.png"
+            alt="cauliflower"
+            class="mx-auto w-24"
+          />
+          <div class="text-white">$4.65</div>
+        </div>
+        <h2 class="mt-2">Cauliflower</h2>
+        <button class="add-to-cart" data-item="Cauliflower">Add to Cart</button>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/tomato.png" alt="tomatoes" class="mx-auto w-24" />
           <div class="text-white">$6.38</div>
         </div>
-        <h2 class="mt-2">Apricots</h2>
-        <button class="add-to-cart" data-item="Apricots">Add to Cart</button>
+        <h2 class="mt-2">Tomatoes</h2>
+        <button class="add-to-cart" data-item="Tomatoes">Add to Cart</button>
       </div>
       <div class="relative text-center">
         <div class="relative">
-          <img src="img/pear.png" alt="Pears" class="mx-auto w-24" />
+          <img src="img/cabbage.png" alt="cabbage" class="mx-auto w-24" />
+          <div class="text-white">$4.45</div>
+        </div>
+        <h2 class="mt-2">Cabbage</h2>
+        <button class="add-to-cart" data-item="Cabbage">Add to Cart</button>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/carrot.png" alt="carrots" class="mx-auto w-24" />
+          <div class="text-white">$3.58</div>
+        </div>
+        <h2 class="mt-2">Carrots</h2>
+        <button class="add-to-cart" data-item="Carrots">Add to Cart</button>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/corn.png" alt="corn" class="mx-auto w-24" />
           <div class="text-white">$3.75</div>
         </div>
-        <h2 class="mt-2">Pears</h2>
-        <button class="add-to-cart" data-item="Pears">Add to Cart</button>
+        <h2 class="mt-2">Corn</h2>
+        <button class="add-to-cart" data-item="Corn">Add to Cart</button>
       </div>
       <div class="relative text-center">
         <div class="relative">
-          <img src="img/banana.png" alt="Bananas" class="mx-auto w-24" />
-          <div class="text-white">$4.50</div>
+          <img src="img/potato.png" alt="potatoes" class="mx-auto w-24" />
+          <div class="text-white">$4.35</div>
         </div>
-        <h2 class="mt-2">Bananas</h2>
-        <button class="add-to-cart" data-item="Bananas">Add to Cart</button>
+        <h2 class="mt-2">Potatoes</h2>
+        <button class="add-to-cart" data-item="Potatoes">Add to Cart</button>
       </div>
       <div class="relative text-center">
         <div class="relative">
-          <img src="img/cherry.png" alt="Cherries" class="mx-auto w-24" />
+          <img src="img/onion.png" alt="onions" class="mx-auto w-24" />
+          <div class="text-white">$4.95</div>
+        </div>
+        <h2 class="mt-2">Onions</h2>
+        <button class="add-to-cart" data-item="Onions">Add to Cart</button>
+      </div>
+      <div class="relative text-center">
+        <div class="relative">
+          <img src="img/eggplant.png" alt="eggplant" class="mx-auto w-24" />
           <div class="text-white">$5.50</div>
         </div>
-        <h2 class="mt-2">Cherries</h2>
-        <button class="add-to-cart" data-item="Cherries">Add to Cart</button>
+        <h2 class="mt-2">Eggplant</h2>
+        <button class="add-to-cart" data-item="Eggplant">Add to Cart</button>
       </div>
       <div class="relative text-center">
         <div class="relative">
-          <img src="img/grape.png" alt="Grapes" class="mx-auto w-24" />
-          <div class="text-white">$5.20</div>
+          <img src="img/pepper.png" alt="peppers" class="mx-auto w-24" />
+          <div class="text-white">$6.20</div>
         </div>
-        <h2 class="mt-2">Grapes</h2>
-        <button class="add-to-cart" data-item="Grapes">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/blackberry.png" alt="Blackberries" class="mx-auto w-24" />
-          <div class="text-white">$5.25</div>
-        </div>
-        <h2 class="mt-2">Blackberries</h2>
-        <button class="add-to-cart" data-item="Blackberries">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/cantaloupe.png" alt="Cantaloupe" class="mx-auto w-24" />
-          <div class="text-white">$5.50</div>
-        </div>
-        <h2 class="mt-2">Cantaloupe</h2>
-        <button class="add-to-cart" data-item="Cantaloupe">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/orange.png" alt="Oranges" class="mx-auto w-24" />
-          <div class="text-white">$4.70</div>
-        </div>
-        <h2 class="mt-2">Oranges</h2>
-        <button class="add-to-cart" data-item="Oranges">Add to Cart</button>
-      </div>
-      <div class="relative text-center">
-        <div class="relative">
-          <img src="img/watermelon.png" alt="Watermelon" class="mx-auto w-24" />
-          <div class="text-white">$598.65/oz💰</div>
-        </div>
-        <h2 class="mt-2">Watermelon</h2>
-        <button class="add-to-cart" data-item="Watermelon">Add to Cart</button>
+        <h2 class="mt-2">Peppers</h2>
+        <button class="add-to-cart" data-item="Peppers">Add to Cart</button>
       </div>
     </div>
-
 
     <script>
       // Get all the buttons with the class 'add-to-cart'
@@ -200,8 +206,6 @@
         cart.removeChild(li);
       }
     </script>
-
-
     <script src="script.js"></script>
   </body>
 </html>
