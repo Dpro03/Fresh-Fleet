@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vegetable Shop</title>
+    <title>Fresh Veggies</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <style>
         .cart-container {
@@ -33,10 +33,10 @@
         }
   
         .remove-button {
-          background-color: #523b3b;
+          background-color: #421174;
           color: #fff;
           border: none;
-          margin-left: 8px;
+          margin-left: -1px;
           padding: 1px 1px;
           border-radius: 4px;
           cursor: pointer;
@@ -50,23 +50,30 @@
         .button-container {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px; /* Adjust the padding value as needed */
-  }
+    padding: 0 20px; 
+  } 
+
       </style>
   
   </head>
   <body class="bg bg-gradient-to-r from-green-500 via-yellow-500 to-red-500  text-white py-8">
+    <div class="flex justify-center mt-2 mb-2">
+        <a href="index.html" class="text-white bg-red-700 hover:bg-blue-700 px-4 py-2 rounded-md mb-4 mt-0">
+            Home
+        </a>
+    </div>
+
     <div class="container mx-auto px-4">
       <h1 class="text-4xl font-bold text-center mb-8">Fresh Veggies</h1>
       <div class="button-container">
-        <a id="veggies" href="price.html" class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md">
+        <a id="veggies" href="price.html" class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md mt-6">
           ← Fruits
         </a>
-        <a id="more" href="more.html" class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md">
+        <a id="more" href="more.html" class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md mt-6">
           More stuff →
         </a>
       </div>        
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
         <div class="relative text-center">
           <div class="relative">
             <img src="img/tomato.png" alt="Tomato" class="mx-auto w-24" />
@@ -109,68 +116,64 @@
           </div>
           <div class="relative text-center">
             <div class="relative">
-              <img src="img/onion.png" alt="Onion" class="mx-auto w-24" />
-              <div class="text-white">$1.00</div>
-            </div>
-            <h2 class="mt-2">Onion</h2>
-            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Onion" data-price="1.00">Add to Cart</button>
-          </div>
-          <div class="relative text-center">
-            <div class="relative">
-              <img src="img/tomato.png" alt="Tomato" class="mx-auto w-24" />
-              <div class="text-white">$1.50</div>
-            </div>
-            <h2 class="mt-2">Tomato</h2>
-            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Tomato" data-price="1.50">Add to Cart</button>
-          </div>
-          <div class="relative text-center">
-            <div class="relative">
-              <img src="img/potato.png" alt="Potato" class="mx-auto w-24" />
+              <img src="img/carrot.png" alt="carrot" class="mx-auto w-24" />
               <div class="text-white">$1.25</div>
             </div>
-            <h2 class="mt-2">Potato</h2>
-            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Potato" data-price="1.25">Add to Cart</button>
+            <h2 class="mt-2">Carrots</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Carrots" data-price="1.25">Add to Cart</button>
           </div>
           <div class="relative text-center">
             <div class="relative">
-              <img src="img/onion.png" alt="Onion" class="mx-auto w-24" />
-              <div class="text-white">$1.00</div>
+              <img src="img/cabbage.png" alt="cabbage" class="mx-auto w-24" />
+              <div class="text-white">$2.50</div>
             </div>
-            <h2 class="mt-2">Onion</h2>
-            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Onion" data-price="1.00">Add to Cart</button>
+            <h2 class="mt-2">Cabbage</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Cabbage" data-price="2.50">Add to Cart</button>
           </div>
           <div class="relative text-center">
             <div class="relative">
-              <img src="img/tomato.png" alt="Tomato" class="mx-auto w-24" />
-              <div class="text-white">$1.50</div>
+              <img src="img/cucumber.png" alt="cucumber" class="mx-auto w-24" />
+              <div class="text-white">$1.25</div>
             </div>
-            <h2 class="mt-2">Tomato</h2>
-            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Tomato" data-price="1.50">Add to Cart</button>
+            <h2 class="mt-2">Cucumber</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Cucumber" data-price="1.25">Add to Cart</button>
           </div>
           <div class="relative text-center">
             <div class="relative">
-              <img src="img/potato.png" alt="Potato" class="mx-auto w-24" />
+              <img src="img/corn.png" alt="corn" class="mx-auto w-24" />
+              <div class="text-white">$1.35</div>
+            </div>
+            <h2 class="mt-2">Corn</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Corn" data-price="1.35">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/eggplant.png" alt="eggplant" class="mx-auto w-24" />
+              <div class="text-white">$2.25</div>
+            </div>
+            <h2 class="mt-2">Eggplant</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Eggplant" data-price="2.25">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/pepper.png" alt="Pepper" class="mx-auto w-24" />
               <div class="text-white">$3.25</div>
             </div>
-            <h2 class="mt-2">Potato</h2>
-            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Potato" data-price="3.25">Add to Cart</button>
+            <h2 class="mt-2">Red Pepper</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Red pepper" data-price="3.25">Add to Cart</button>
           </div>
           <div class="relative text-center">
             <div class="relative">
-              <img src="img/onion.png" alt="Onion" class="mx-auto w-24" />
-              <div class="text-white">$1.00</div>
+              <img src="img/greenpepper.png" alt="green pepper" class="mx-auto w-24" />
+              <div class="text-white">$2.20</div>
             </div>
-            <h2 class="mt-2">Onion</h2>
-            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Onion" data-price="1.00">Add to Cart</button>
+            <h2 class="mt-2">Green Pepper</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Green pepper" data-price="2.20">Add to Cart</button>
           </div>
-  
-  
-      </div> 
-       
-        <!-- Add more vegetable items here -->
+      </div>  
       </div>
       <div class="mt-8">
-        <h2 class="text-xl font-bold">Cart</h2>
+        <h2 class="bg-pink-800 text-2xl py-1 px-10 font-bold text-white">My Cart  ↓</h2>
         <ul class="mt-4" id="cart-items"></ul>
         <div class="mt-4">
           <h2 class="font-bold">Total Price: $<span id="total-price">0.00</span></h2>
@@ -194,8 +197,8 @@
             const newItem = document.createElement('li');
             const removeButton = document.createElement('button');
             removeButton.textContent = 'Remove';
-            removeButton.classList.add('remove-item', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md', 'ml-4', 'mr-2', 'mt-1');
-            newItem.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+            removeButton.classList.add('remove-item', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md', 'ml-2', 'mr-2', 'mt-1');
+            newItem.textContent = `${itemName} - $$${itemPrice.toFixed(2)}`;
             newItem.appendChild(removeButton);
             cartItemsElement.appendChild(newItem);
             totalPrice += itemPrice;

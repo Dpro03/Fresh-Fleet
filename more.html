@@ -1,52 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>More Stuff</title>
-</head>
-<body>
-    <body class="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500">
-        <div class="flex justify-center mt-2">
-            <a href="index.html" class="text-white bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-md">
-                Home
-            </a>
-        </div>
-        <h1 class="text-center text-3xl mt-12 underline text-blue-700">
-            More Stuff
-        </h1>
-        <div class="flex justify-between mt--8">
-            <a id="prices" href="veggies.html" class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md">
-                ← Veggies
-            </a>
-            <a id="veggies" href="more.html" class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md">
-                No more stuff →
-            </a>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
-            <div class="relative text-center">
-                <div class="relative">
-                    <img src="img/camera.png" alt="camera" class="mx-auto w-24">
-                    <div class="text-white">$185.00</div>
-                </div>
-                <h2 class="mt-2"> Nikon Camera</h2>
-            </div>
-            <div class="relative text-center">
-                <div class="relative">
-                    <img src="img/cooler.png" alt="cooler" class="mx-auto w-24">
-                    <div class="text-white">$89.95</div>
-                </div>
-                <h2 class="mt-2">Evaporative Air Cooler</h2>
-            </div>
-            <div class="relative text-center">
-                <div class="relative">
-                    <img src="img/headphones.png" alt="headphones" class="mx-auto w-24">
-                    <div class="text-white">$46.98</div>
-                </div>
-                <h2 class="mt-2">Headphones</h2>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vegetable Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <style>
+        .cart-container {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #fff;
+          padding: 20px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          border-radius: 8px;
+          max-height: 200px;
+          overflow-y: auto;
+        }
+  
+        .cart-container h2 {
+          margin-top: 6;
+        }
+  
+        .cart-container ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+  
+        .cart-container li {
+          margin-bottom: 5px;
+        }
+  
+        .remove-button {
+          background-color: #523b3b;
+          color: #fff;
+          border: none;
+          margin-left: 8px;
+          padding: 1px 1px;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-top: 8px;
+          margin-bottom: 8px;
+        }
+  
+        .remove-button:hover {
+          background-color: #cc0000;
+        }
+        .button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px; /* Adjust the padding value as needed */
+  }
+      </style>
+  
+  </head>
+  <body class="bg bg-gradient-to-r from-green-500 via-yellow-500 to-red-500  text-white py-8">
+    <div class="flex justify-center mt-2 mb-2">
+      <a href="index.html" class="text-white bg-red-700 hover:bg-blue-700 px-4 py-2 mb-3 mt-0 rounded-md">
+          Home
+      </a>
+  </div>
 
-    <script src="script.js"></script>
-</body>
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-8">More Items</h1>
+      <div class="flex justify-end">
+      </div>  
+      <div class="flex justify-between mt-8">
+        <a id="prices" href="veggies.html" class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md">
+            ← Veggies
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+        <div class="relative text-center">
+          <div class="relative">
+            <img src="img/headphones.png" alt="headphones" class="mx-auto w-24" />
+            <div class="text-white">$44.95</div>
+          </div>
+          <h2 class="mt-2">Headphones</h2>
+          <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Headphones" data-price="44.95">Add to Cart</button>
+        </div>
+        <div class="relative text-center">
+          <div class="relative">
+            <img src="img/camera.png" alt="camera" class="mx-auto w-24" />
+            <div class="text-white">$128.75</div>
+          </div>
+          <h2 class="mt-2">Nikon Camera</h2>
+          <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Nikon Camera" data-price="128.75">Add to Cart</button>
+        </div>
+        <div class="relative text-center">
+          <div class="relative">
+            <img src="img/cooler.png" alt="cooler" class="mx-auto w-24" />
+            <div class="text-white">$158.99</div>
+          </div>
+          <h2 class="mt-2">Evaporative Cooler</h2>
+          <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Evaporative Cooler" data-price="158.99">Add to Cart</button>
+        </div>
+        <div class="relative text-center">
+            <div class="relative">
+              <img src="img/orange.png" alt="oranges" class="mx-auto w-24" />
+              <div class="text-white">$3.50</div>
+            </div>
+            <h2 class="mt-2">Oranges</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Oranges" data-price="3.50">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/apricot.png" alt="apricot" class="mx-auto w-24" />
+              <div class="text-white">$3.25</div>
+            </div>
+            <h2 class="mt-2">Apricots</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Apricots" data-price="3.25">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/cantaloupe.png" alt="cantaloupe" class="mx-auto w-24" />
+              <div class="text-white">$3.00</div>
+            </div>
+            <h2 class="mt-2">Cantaloupe</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Cantaloupe" data-price="3.00">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/cherry.png" alt="cherry" class="mx-auto w-24" />
+              <div class="text-white">$3.50</div>
+            </div>
+            <h2 class="mt-2">Cherries</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Cherries" data-price="3.50">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/strawberry.png" alt="strawberry" class="mx-auto w-24" />
+              <div class="text-white">$2.25</div>
+            </div>
+            <h2 class="mt-2">Strawberries</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Strawberries" data-price="2.25">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/pear.png" alt="pears" class="mx-auto w-24" />
+              <div class="text-white">$1.50</div>
+            </div>
+            <h2 class="mt-2">Pears</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item=Pears" data-price="1.50">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/blackberry.png" alt="blackberry" class="mx-auto w-24" />
+              <div class="text-white">$1.50</div>
+            </div>
+            <h2 class="mt-2">Blackberries</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Blackberries" data-price="1.50">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/watermelon.png" alt="watermelon" class="mx-auto w-24" />
+              <div class="text-white">$3.25</div>
+            </div>
+            <h2 class="mt-2">Watermelon</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Watermelon" data-price="3.25">Add to Cart</button>
+          </div>
+          <div class="relative text-center">
+            <div class="relative">
+              <img src="img/plum.png" alt="plums" class="mx-auto w-24" />
+              <div class="text-white">$1.25</div>
+            </div>
+            <h2 class="mt-2">Plums</h2>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Plums" data-price="1.25">Add to Cart</button>
+          </div>
+      </div> 
+       
+        <!-- Add more vegetable items here -->
+      </div>
+      <div class="mt-8">
+        <h2 class="bg-pink-800 text-2xl px-10 py-1 font-bold text-white">My Cart  ↓</h2>
+
+        <ul class="mt-4" id="cart-items"></ul>
+        <div class="mt-4">
+          <h2 class="font-bold">Total Price: $<span id="total-price">0.00</span></h2>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const cartItemsElement = document.getElementById('cart-items');
+      const addToCartButtons = document.getElementsByClassName('add-to-cart');
+      const totalPriceElement = document.getElementById('total-price');
+      let totalPrice = 0;
+    
+      // Load cart items from local storage on page load
+      loadCartItems();
+    
+      // Add event listener to each "Add to Cart" button
+      Array.from(addToCartButtons).forEach(function (button) {
+        button.addEventListener('click', function () {
+          const itemName = button.getAttribute('data-item');
+          const itemPrice = parseFloat(button.getAttribute('data-price'));
+          const newItem = document.createElement('li');
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Remove';
+          removeButton.classList.add('remove-item', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md', 'ml-4', 'mr-2', 'mt-1');
+          newItem.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+          newItem.appendChild(removeButton);
+          cartItemsElement.appendChild(newItem);
+          totalPrice += itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+          saveCartItem(itemName, itemPrice); // Save cart item to local storage
+        });
+      });
+    
+      // Remove item event listener
+      cartItemsElement.addEventListener('click', function (event) {
+        if (event.target.classList.contains('remove-item')) {
+          const itemElement = event.target.parentNode;
+          const itemName = itemElement.textContent.split(' - $')[0];
+          const itemPrice = parseFloat(itemElement.textContent.split(' - $')[1]);
+          totalPrice -= itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+          itemElement.remove();
+          removeCartItem(itemName); // Remove cart item from local storage
+        }
+      });
+    
+      // Load cart items from local storage
+      function loadCartItems() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.forEach(function (itemName) {
+          const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
+          const newItem = document.createElement('li');
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Remove';
+          removeButton.classList.add('remove-item', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md', 'ml-4', 'mr-2', 'mt-1');
+          newItem.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+          newItem.appendChild(removeButton);
+          cartItemsElement.appendChild(newItem);
+          totalPrice += itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+        });
+      }
+    
+      // Save cart item to local storage
+      function saveCartItem(itemName, itemPrice) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        if (!cartItems.includes(itemName)) {
+          cartItems.push(itemName);
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+        localStorage.setItem(`price-${itemName}`, itemPrice);
+      }
+    
+      // Remove cart item from local storage
+      function removeCartItem(itemName) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const index = cartItems.indexOf(itemName);
+        if (index > -1) {
+          cartItems.splice(index, 1);
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+          localStorage.removeItem(`price-${itemName}`);
+        }
+      }
+    </script>
+                            
+
+
+      
+  </body>
 </html>
