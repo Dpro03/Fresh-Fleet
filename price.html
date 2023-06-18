@@ -6,52 +6,35 @@
     <title>Vegetable Shop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <style>
-        .cart-container {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          background-color: #fff;
-          padding: 20px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-          border-radius: 8px;
-          max-height: 200px;
-          overflow-y: auto;
-        }
-  
-        .cart-container h2 {
-          margin-top: 6;
-        }
-  
-        .cart-container ul {
-          list-style-type: none;
-          padding: 0;
-          margin: 0;
-        }
-  
-        .cart-container li {
-          margin-bottom: 5px;
-        }
-  
-        .remove-button {
-          background-color: #523b3b;
-          color: #fff;
-          border: none;
-          margin-left: 8px;
-          padding: 1px 1px;
-          border-radius: 4px;
-          cursor: pointer;
-          margin-top: 8px;
-          margin-bottom: 8px;
-        }
-  
-        .remove-button:hover {
-          background-color: #cc0000;
-        }
-        .button-container {
+ .cart-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.remove-button {
+  position: absolute;
+  left: 20rem;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.cart-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.remove-button:hover {
+  background-color: #cc0000;
+}
+
+.button-container {
     display: flex;
     justify-content: space-between;
     padding: 0 20px; /* Adjust the padding value as needed */
   }
+
+
+
       </style>
   
   </head>
@@ -73,7 +56,7 @@
       </div>      
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
         <div class="relative text-center">
-          <div class="relative">
+          <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
             <img src="img/apple.png" alt="apple" class="mx-auto w-24" />
             <div class="text-white">$1.50</div>
           </div>
@@ -81,7 +64,7 @@
           <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Apple" data-price="1.50">Add to Cart</button>
         </div>
         <div class="relative text-center">
-          <div class="relative">
+          <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
             <img src="img/banana.png" alt="banana" class="mx-auto w-24" />
             <div class="text-white">$1.75</div>
           </div>
@@ -89,7 +72,7 @@
           <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Banana" data-price="1.25">Add to Cart</button>
         </div>
         <div class="relative text-center">
-          <div class="relative">
+          <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
             <img src="img/grape.png" alt="grape" class="mx-auto w-24" />
             <div class="text-white">$1.00</div>
           </div>
@@ -97,7 +80,7 @@
           <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Grapes" data-price="1.00">Add to Cart</button>
         </div>
         <div class="relative text-center">
-            <div class="relative">
+            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
               <img src="img/orange.png" alt="oranges" class="mx-auto w-24" />
               <div class="text-white">$3.50</div>
             </div>
@@ -105,7 +88,7 @@
             <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Oranges" data-price="3.50">Add to Cart</button>
           </div>
           <div class="relative text-center">
-            <div class="relative">
+            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
               <img src="img/apricot.png" alt="apricot" class="mx-auto w-24" />
               <div class="text-white">$3.25</div>
             </div>
@@ -113,7 +96,7 @@
             <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Apricots" data-price="3.25">Add to Cart</button>
           </div>
           <div class="relative text-center">
-            <div class="relative">
+            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
               <img src="img/cantaloupe.png" alt="cantaloupe" class="mx-auto w-24" />
               <div class="text-white">$3.00</div>
             </div>
@@ -121,7 +104,7 @@
             <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Cantaloupe" data-price="3.00">Add to Cart</button>
           </div>
           <div class="relative text-center">
-            <div class="relative">
+            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
               <img src="img/cherry.png" alt="cherry" class="mx-auto w-24" />
               <div class="text-white">$3.50</div>
             </div>
@@ -129,7 +112,7 @@
             <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Cherries" data-price="3.50">Add to Cart</button>
           </div>
           <div class="relative text-center">
-            <div class="relative">
+            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
               <img src="img/strawberry.png" alt="strawberry" class="mx-auto w-24" />
               <div class="text-white">$2.25</div>
             </div>
@@ -137,7 +120,7 @@
             <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Strawberries" data-price="2.25">Add to Cart</button>
           </div>
           <div class="relative text-center">
-            <div class="relative">
+            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
               <img src="img/pear.png" alt="pears" class="mx-auto w-24" />
               <div class="text-white">$1.50</div>
             </div>
@@ -145,7 +128,7 @@
             <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item=Pears" data-price="1.50">Add to Cart</button>
           </div>
           <div class="relative text-center">
-            <div class="relative">
+            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
               <img src="img/blackberry.png" alt="blackberry" class="mx-auto w-24" />
               <div class="text-white">$1.50</div>
             </div>
@@ -153,7 +136,7 @@
             <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Blackberries" data-price="1.50">Add to Cart</button>
           </div>
           <div class="relative text-center">
-            <div class="relative">
+            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
               <img src="img/watermelon.png" alt="watermelon" class="mx-auto w-24" />
               <div class="text-white">$3.25</div>
             </div>
@@ -161,7 +144,7 @@
             <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Watermelon" data-price="3.25">Add to Cart</button>
           </div>
           <div class="relative text-center">
-            <div class="relative">
+            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
               <img src="img/plum.png" alt="plums" class="mx-auto w-24" />
               <div class="text-white">$1.25</div>
             </div>
@@ -183,86 +166,89 @@
     </div>
 
     <script>
-      const cartItemsElement = document.getElementById('cart-items');
-      const addToCartButtons = document.getElementsByClassName('add-to-cart');
-      const totalPriceElement = document.getElementById('total-price');
-      let totalPrice = 0;
-    
-      // Load cart items from local storage on page load
-      loadCartItems();
-    
-      // Add event listener to each "Add to Cart" button
-      Array.from(addToCartButtons).forEach(function (button) {
-        button.addEventListener('click', function () {
-          const itemName = button.getAttribute('data-item');
-          const itemPrice = parseFloat(button.getAttribute('data-price'));
-          const newItem = document.createElement('li');
-          const removeButton = document.createElement('button');
-          removeButton.textContent = 'Remove';
-          removeButton.classList.add('remove-item', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md', 'ml-4', 'mr-2', 'mt-1');
-          newItem.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-          newItem.appendChild(removeButton);
-          cartItemsElement.appendChild(newItem);
-          totalPrice += itemPrice;
-          totalPriceElement.textContent = totalPrice.toFixed(2);
-          saveCartItem(itemName, itemPrice); // Save cart item to local storage
-        });
-      });
-    
-      // Remove item event listener
-      cartItemsElement.addEventListener('click', function (event) {
-        if (event.target.classList.contains('remove-item')) {
-          const itemElement = event.target.parentNode;
-          const itemName = itemElement.textContent.split(' - $')[0];
-          const itemPrice = parseFloat(itemElement.textContent.split(' - $')[1]);
-          totalPrice -= itemPrice;
-          totalPriceElement.textContent = totalPrice.toFixed(2);
-          itemElement.remove();
-          removeCartItem(itemName); // Remove cart item from local storage
-        }
-      });
-    
-      // Load cart items from local storage
-      function loadCartItems() {
-        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        cartItems.forEach(function (itemName) {
-          const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
-          const newItem = document.createElement('li');
-          const removeButton = document.createElement('button');
-          removeButton.textContent = 'Remove';
-          removeButton.classList.add('remove-item', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md', 'ml-4', 'mr-2', 'mt-1');
-          newItem.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-          newItem.appendChild(removeButton);
-          cartItemsElement.appendChild(newItem);
-          totalPrice += itemPrice;
-          totalPriceElement.textContent = totalPrice.toFixed(2);
-        });
-      }
-    
-      // Save cart item to local storage
-      function saveCartItem(itemName, itemPrice) {
-        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        if (!cartItems.includes(itemName)) {
-          cartItems.push(itemName);
-          localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        }
-        localStorage.setItem(`price-${itemName}`, itemPrice);
-      }
-    
-      // Remove cart item from local storage
-      function removeCartItem(itemName) {
-        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        const index = cartItems.indexOf(itemName);
-        if (index > -1) {
-          cartItems.splice(index, 1);
-          localStorage.setItem('cartItems', JSON.stringify(cartItems));
-          localStorage.removeItem(`price-${itemName}`);
-        }
-      }
-    </script>
-                            
 
-
+const cartItemsElement = document.getElementById('cart-items');
+        const addToCartButtons = document.getElementsByClassName('add-to-cart');
+        const totalPriceElement = document.getElementById('total-price');
+        let totalPrice = 0;
       
+        // Load cart items from local storage on page load
+        loadCartItems();
+      
+        // Add event listener to each "Add to Cart" button
+        Array.from(addToCartButtons).forEach(function (button) {
+          button.addEventListener('click', function () {
+            const itemName = button.getAttribute('data-item');
+            const itemPrice = parseFloat(button.getAttribute('data-price'));
+            const newItem = document.createElement('li');
+            newItem.classList.add('cart-item');
+            const itemNameSpan = document.createElement('span');
+            itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.classList.add('remove-button', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md');
+            removeButton.addEventListener('click', function () {
+              removeCartItem(itemName, itemPrice);
+              newItem.remove();
+            });
+            newItem.appendChild(itemNameSpan);
+            newItem.appendChild(removeButton);
+            cartItemsElement.appendChild(newItem);
+            totalPrice += itemPrice;
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+            saveCartItem(itemName, itemPrice);
+          });
+        });
+      
+        // Load cart items from local storage
+        function loadCartItems() {
+          const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+          cartItems.forEach(function (itemName) {
+            const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
+            const newItem = document.createElement('li');
+            newItem.classList.add('cart-item');
+            const itemNameSpan = document.createElement('span');
+            itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.classList.add('remove-button', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md');
+            removeButton.addEventListener('click', function () {
+              removeCartItem(itemName, itemPrice);
+              newItem.remove();
+            });
+            newItem.appendChild(itemNameSpan);
+            newItem.appendChild(removeButton);
+            cartItemsElement.appendChild(newItem);
+            totalPrice += itemPrice;
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+          });
+        }
+      
+        // Save cart item to local storage
+        function saveCartItem(itemName, itemPrice) {
+          const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+          if (!cartItems.includes(itemName)) {
+            cartItems.push(itemName);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+          }
+          localStorage.setItem(`price-${itemName}`, itemPrice);
+        }
+      
+        // Remove cart item from local storage
+        function removeCartItem(itemName, itemPrice) {
+          const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+          const index = cartItems.indexOf(itemName);
+          if (index > -1) {
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            localStorage.removeItem(`price-${itemName}`);
+      
+            // Update the total price
+            totalPrice -= itemPrice;
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+          }
+        }
+</script>
+                              
   </body>
 </html>
