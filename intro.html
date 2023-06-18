@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Introduction</title>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-200 text-gray-600">
+    <div class="flex justify-center mt-2 mb-2">
+      <a
+        href="index.html"
+        class="text-white bg-red-700 hover:bg-blue-700 px-4 py-2 mb-3 mt-0 rounded-md transition-colors duration-300"
+      >
+        Home
+      </a>
+    </div>
+
+    <div class="flex justify-center items-center">
+      <h1 class="text-center text-4xl mt-8 text-slate-700">Fresh-Fleet</h1>
+      <img class="w-16 ml-4" src="img/logo1.png" alt="grocerycart" />
+    </div>
+
+    <h1 class="text-center text-3xl animate-fadeIn mt-8">
+      Introducing our website!
+    </h1>
+    <h1 class="text-center text-3xl mt-8 mb-4 animate-fadeIn">
+      and how to use it....
+    </h1>
+
+    <div class="grid grid-cols-2 gap-8 mt-16 mx-14 shadow-lg">
+      <div>
+        <div
+          class="bg-blue-600 text-white text-2xl text-center p-4 rounded-3xl"
+        >
+          <h2 class="text-center text-xl mt-4 mb-4">
+            Let's get started! Take a look around our website. If you want to
+            place an order or just want to browse our products, you can do that
+            by going to our home page and click on the products link at the top
+            of the page. When you get to our products pages, you will see links
+            on the sides of the pages where you will be able to see other
+            categories of products. If you do not see a link on one side of a
+            page, that means you have come to the end of the categories. If a
+            link is not working, please<br />
+            <a
+              href="contact.html"
+              class="text-white bg-red-700 hover:bg-red-500 px-2 py-1 mb-3 mt-0 rounded-md transition-colors duration-300"
+            >
+              contact us.
+            </a>
+            <br />
+            You can find our contact information on our home page or by clicking
+            the contact us button. By the way, every page has a 'home' button at
+            the top of the page that will take you back to the home page.
+          </h2>
+        </div>
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <img
+          class="my-4 w-64 hover:scale-105 transition-transform duration-300"
+          src="img/groceries.png"
+          alt="about"
+        />
+        <img
+          class="my-4 w-84 hover:scale-105 transition-transform duration-300"
+          src="img/shipping.png"
+          alt="about"
+        />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

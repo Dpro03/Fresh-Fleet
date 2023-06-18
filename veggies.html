@@ -43,6 +43,7 @@
             Home
         </a>
     </div>
+    
 
     <div class="container mx-auto px-4">
       <h1 class="text-4xl font-bold text-center mb-8">Fresh Veggies</h1>
@@ -153,11 +154,11 @@
           </div>
       </div>  
       </div>
-      <div class="mt-8">
-        <h2 class="bg-pink-800 text-2xl py-1 px-10 font-bold text-white">My Cart  ↓</h2>
-        <ul class="mt-4" id="cart-items"></ul>
+      <div class="mt-12 bg-red-100 pl-1 pr-1 rounded-lg">
+        <h2 class="bg-pink-800 text-2xl py-1 px-10 font-bold rounded-lg text-white">My Cart  ↓</h2>
+        <ul class="mt-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 ml-2 text-black text-xl" id="cart-items"></ul>
         <div class="mt-4">
-          <h2 class="font-bold">Total Price: $<span id="total-price">0.00</span></h2>
+          <h2 class="font-bold text-2xl text-black">Total Price: $<span id="total-price">0.00</span></h2>
         </div>
       </div>
     </div>
@@ -175,6 +176,7 @@
       
       <ul id="cart-items"></ul>
       
+
       <script>
         const cartItemsElement = document.getElementById('cart-items');
         const addToCartButtons = document.getElementsByClassName('add-to-cart');
@@ -195,7 +197,7 @@
             itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
             const removeButton = document.createElement('button');
             removeButton.textContent = 'Remove';
-            removeButton.classList.add('remove-button', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md');
+            removeButton.classList.add('remove-button', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-lg');
             removeButton.addEventListener('click', function () {
               removeCartItem(itemName, itemPrice);
               newItem.remove();
@@ -236,10 +238,8 @@
         // Save cart item to local storage
         function saveCartItem(itemName, itemPrice) {
           const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-          if (!cartItems.includes(itemName)) {
-            cartItems.push(itemName);
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-          }
+          cartItems.push(itemName);
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
           localStorage.setItem(`price-${itemName}`, itemPrice);
         }
       
@@ -255,9 +255,18 @@
             // Update the total price
             totalPrice -= itemPrice;
             totalPriceElement.textContent = totalPrice.toFixed(2);
+      
+            // Check if the cart is empty and update the total price to zero
+            if (cartItems.length === 0) {
+              totalPrice = 0;
+              totalPriceElement.textContent = totalPrice.toFixed(2);
+            }
           }
         }
       </script>
+      
+      
+      
       
 
 

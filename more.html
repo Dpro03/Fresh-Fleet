@@ -125,7 +125,7 @@
               <div class="text-white">$1.50</div>
             </div>
             <h2 class="mt-2">Pears</h2>
-            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item=Pears" data-price="1.50">Add to Cart</button>
+            <button class="add-to-cart bg-green-500 text-white px-4 py-2 rounded-md" data-item="Pears" data-price="1.50">Add to Cart</button>
           </div>
           <div class="relative text-center">
             <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
@@ -153,103 +153,105 @@
           </div>
       </div> 
        
-        <!-- Add more vegetable items here -->
       </div>
-      <div class="mt-8">
-        <h2 class="bg-pink-800 text-2xl px-10 py-1 font-bold text-white">My Cart  ↓</h2>
-
-        <ul class="mt-4" id="cart-items"></ul>
+      <div class="mt-8 bg-red-100 pl-1 pr-1 rounded-lg">
+        <h2 class="bg-pink-800 text-2xl py-1 px-10 font-bold rounded-lg text-white">My Cart  ↓</h2>
+        <ul class="mt-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 ml-2 text-black text-xl" id="cart-items"></ul>
         <div class="mt-4">
-          <h2 class="font-bold">Total Price: $<span id="total-price">0.00</span></h2>
+          <h2 class="font-bold text-2xl text-black">Total Price: $<span id="total-price">0.00</span></h2>
+
         </div>
       </div>
     </div>
 
     <script>
-              const cartItemsElement = document.getElementById('cart-items');
-        const addToCartButtons = document.getElementsByClassName('add-to-cart');
-        const totalPriceElement = document.getElementById('total-price');
-        let totalPrice = 0;
-      
-        // Load cart items from local storage on page load
-        loadCartItems();
-      
-        // Add event listener to each "Add to Cart" button
-        Array.from(addToCartButtons).forEach(function (button) {
-          button.addEventListener('click', function () {
-            const itemName = button.getAttribute('data-item');
-            const itemPrice = parseFloat(button.getAttribute('data-price'));
-            const newItem = document.createElement('li');
-            newItem.classList.add('cart-item');
-            const itemNameSpan = document.createElement('span');
-            itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-            const removeButton = document.createElement('button');
-            removeButton.textContent = 'Remove';
-            removeButton.classList.add('remove-button', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md');
-            removeButton.addEventListener('click', function () {
-              removeCartItem(itemName, itemPrice);
-              newItem.remove();
-            });
-            newItem.appendChild(itemNameSpan);
-            newItem.appendChild(removeButton);
-            cartItemsElement.appendChild(newItem);
-            totalPrice += itemPrice;
-            totalPriceElement.textContent = totalPrice.toFixed(2);
-            saveCartItem(itemName, itemPrice);
+      const cartItemsElement = document.getElementById('cart-items');
+      const addToCartButtons = document.getElementsByClassName('add-to-cart');
+      const totalPriceElement = document.getElementById('total-price');
+      let totalPrice = 0;
+    
+      // Load cart items from local storage on page load
+      loadCartItems();
+    
+      // Add event listener to each "Add to Cart" button
+      Array.from(addToCartButtons).forEach(function (button) {
+        button.addEventListener('click', function () {
+          const itemName = button.getAttribute('data-item');
+          const itemPrice = parseFloat(button.getAttribute('data-price'));
+          const newItem = document.createElement('li');
+          newItem.classList.add('cart-item');
+          const itemNameSpan = document.createElement('span');
+          itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Remove';
+          removeButton.classList.add('remove-button', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-lg');
+          removeButton.addEventListener('click', function () {
+            removeCartItem(itemName, itemPrice);
+            newItem.remove();
           });
+          newItem.appendChild(itemNameSpan);
+          newItem.appendChild(removeButton);
+          cartItemsElement.appendChild(newItem);
+          totalPrice += itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+          saveCartItem(itemName, itemPrice);
         });
-      
-        // Load cart items from local storage
-        function loadCartItems() {
-          const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-          cartItems.forEach(function (itemName) {
-            const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
-            const newItem = document.createElement('li');
-            newItem.classList.add('cart-item');
-            const itemNameSpan = document.createElement('span');
-            itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-            const removeButton = document.createElement('button');
-            removeButton.textContent = 'Remove';
-            removeButton.classList.add('remove-button', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md');
-            removeButton.addEventListener('click', function () {
-              removeCartItem(itemName, itemPrice);
-              newItem.remove();
-            });
-            newItem.appendChild(itemNameSpan);
-            newItem.appendChild(removeButton);
-            cartItemsElement.appendChild(newItem);
-            totalPrice += itemPrice;
-            totalPriceElement.textContent = totalPrice.toFixed(2);
+      });
+    
+      // Load cart items from local storage
+      function loadCartItems() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.forEach(function (itemName) {
+          const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
+          const newItem = document.createElement('li');
+          newItem.classList.add('cart-item');
+          const itemNameSpan = document.createElement('span');
+          itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Remove';
+          removeButton.classList.add('remove-button', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md');
+          removeButton.addEventListener('click', function () {
+            removeCartItem(itemName, itemPrice);
+            newItem.remove();
           });
-        }
-      
-        // Save cart item to local storage
-        function saveCartItem(itemName, itemPrice) {
-          const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-          if (!cartItems.includes(itemName)) {
-            cartItems.push(itemName);
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-          }
-          localStorage.setItem(`price-${itemName}`, itemPrice);
-        }
-      
-        // Remove cart item from local storage
-        function removeCartItem(itemName, itemPrice) {
-          const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-          const index = cartItems.indexOf(itemName);
-          if (index > -1) {
-            cartItems.splice(index, 1);
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-            localStorage.removeItem(`price-${itemName}`);
-      
-            // Update the total price
-            totalPrice -= itemPrice;
+          newItem.appendChild(itemNameSpan);
+          newItem.appendChild(removeButton);
+          cartItemsElement.appendChild(newItem);
+          totalPrice += itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+        });
+      }
+    
+      // Save cart item to local storage
+      function saveCartItem(itemName, itemPrice) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.push(itemName);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        localStorage.setItem(`price-${itemName}`, itemPrice);
+      }
+    
+      // Remove cart item from local storage
+      function removeCartItem(itemName, itemPrice) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const index = cartItems.indexOf(itemName);
+        if (index > -1) {
+          cartItems.splice(index, 1);
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+          localStorage.removeItem(`price-${itemName}`);
+    
+          // Update the total price
+          totalPrice -= itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+    
+          // Check if the cart is empty and update the total price to zero
+          if (cartItems.length === 0) {
+            totalPrice = 0;
             totalPriceElement.textContent = totalPrice.toFixed(2);
           }
         }
-
+      }
     </script>
-                            
+                                
 
 
       
