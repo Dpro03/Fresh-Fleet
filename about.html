@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>About</title>
+    <style>
+      .logo-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+      }
+      .logo-container img {
+        width: 4rem;
+        margin-left: 0.5rem;
+      }
+    </style>
   </head>
   <body class="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500">
     <div class="flex justify-center mt-2">
@@ -16,18 +29,17 @@
       </a>
     </div>
 
-    <div class="flex justify-center items-center">
+    <div class="logo-container">
       <h1 class="text-center text-4xl mt-8 text-pink-700">
         Fresh-Fleet
       </h1>
-      <img class="w-16 ml-4" src="img/logo1.png" alt="grocerycart" />
+      <img class="w-18 ml-4" src="img/logo1.png" alt="grocerycart" />
     </div>
 
-
-    <h1 class="text-center text-3xl underline text-indigo-700 mt-16">
+    <h1 class="text-center text-4xl underline text-indigo-700 mt-16">
       About Us
     </h1>
-    <h2 class="text-center mx-10 mt-8 -scroll-my-12">
+    <h2 class="text-center mx-10 mt-8 -scroll-my-12 text-3xl">
       We are THE premiere grocery getter that you have ever known. If you are
       looking for the freshest fruits and vegetables, you have come to the right
       place. If you are looking for the best prices, you have come to the right
@@ -35,7 +47,7 @@
       minutes from order placement to your kitchen. That's a fact!
     </h2>
     <img class="mx-auto mt-12 w-18" src="img/groceries.png" alt="about" />
-    <img class="mx-auto mt-12 w-18" src="img/shipping.png" alt="about />
+    <img class="mx-auto mt-12 w-18" src="img/shipping.png" alt="about" />
     <script src="script.js"></script>
   </body>
 </html>

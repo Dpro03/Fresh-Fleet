@@ -3,51 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vegetable Shop</title>
+    <title>Fruit Shop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <style>
- .cart-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+      .cart-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
 
-.remove-button {
-  position: absolute;
-  left: 20rem;
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
+      .remove-button {
+        position: absolute;
+        left: 20rem;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
 
-.cart-item:not(:last-child) {
-  margin-bottom: 10px;
-}
+      .cart-item:not(:last-child) {
+        margin-bottom: 10px;
+      }
 
-.remove-button:hover {
-  background-color: #cc0000;
-}
+      .remove-button:hover {
+        background-color: #cc0000;
+      }
 
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px; /* Adjust the padding value as needed */
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px; /* Adjust the padding value as needed */
+      }
+        @media (max-width: 1000px) { /* Adjust the breakpoint as needed */
+  .text-4xl {
+    font-size: 1rem; /* Decrease the font size */
   }
-      </style>
-  
+  .logo-image {
+    width: 4rem; /* Adjust the image width as needed */
+  }
+
+      }
+    </style>
   </head>
   <body class="bg-gray-500 text-white py-8">
     <div class="flex justify-center mt-2 mb-2">
       <a href="index.html" class="text-white bg-red-700 hover:bg-blue-700 px-4 py-2 mb-3 mt-0 rounded-md">
-          Home
+        Home
       </a>
-  </div>
-
+    </div>
     <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between">
+        <div class="pt-2 ml-0 flex flex-col-2 text-4xl">
+          Fresh-Fleet
+          <img class="logo-image" src="img/logo1.png" alt="grocerycart" />
+        </div>
+      </div>
       <h1 class="text-4xl font-bold text-center mb-8">Fresh Fruits</h1>
       <div class="flex justify-end">
         <div class="button-container">
           <a id="more" href="veggies.html" class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md mt-6">
-            Veggies →
+            Vegetables →
           </a>
         </div>
       </div>      
@@ -269,7 +282,7 @@ clearButton.addEventListener('click', function () {
 // Checkout
 checkoutButton.addEventListener('click', function () {
   if (totalPrice > 0) {
-    alert(`Thank you for your purchase!\n\nTotal Price: $${totalPrice.toFixed(2)}`);
+    alert(`Fresh-Fleet says:\n\nThank you for your purchase!\n\nTotal Price: $${totalPrice.toFixed(2)}`);
     cartItemsElement.innerHTML = '';
     totalPrice = 0;
     totalPriceElement.textContent = totalPrice.toFixed(2);
