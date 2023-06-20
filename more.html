@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fruit Shop</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <title>More Items</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
     <style>
-          .cart-item {
+      .cart-item {
         position: relative;
         display: flex;
         align-items: center;
@@ -32,150 +36,517 @@
         justify-content: space-between;
         padding: 0 20px; /* Adjust the padding value as needed */
       }
-        @media (max-width: 1000px) { /* Adjust the breakpoint as needed */
-  .text-4xl {
-    font-size: 1rem; /* Decrease the font size */
-  } 
-  .logo-image {
-    width: 4rem; /* Adjust the image width as needed */
-  }
-
+      @media (max-width: 1000px) {
+        /* Adjust the breakpoint as needed */
+        .text-4xl {
+          font-size: 1rem; /* Decrease the font size */
+        }
+        .logo-image {
+          width: 4rem; /* Adjust the image width as needed */
+        }
       }
-       
     </style>
+
+    <script>
+      function toggleInfo(id) {
+        const infoElement = document.getElementById(`info-${id}`);
+        if (infoElement.style.display === 'none') {
+          infoElement.style.display = 'block';
+        } else {
+          infoElement.style.display = 'none';
+        }
+        const instElement = document.getElementById(`inst-${id}`);
+        if (instElement.style.display === 'none') {
+          instElement.style.display = 'block';
+        } else {
+          instElement.style.display = 'none';
+        }
+      }
+    </script>
   </head>
-  <body class="bg-gray-500 text-white py-8">
-    <div class="flex justify-center mt-2 mb-2">
-      <a href="index.html" class="text-white bg-red-700 hover:bg-blue-700 px-4 py-2 mb-3 mt-0 rounded-md">
-        Home
-      </a>
-    </div>
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between">
-        <div class="pt-2 ml-0 flex flex-col-2 text-4xl">
-          Fresh-Fleet
-          <img class="logo-image" src="img/logo1.png" alt="grocerycart" />
-        </div>
-      </div>
-      <h1 class="text-4xl font-bold text-center mb-8">More Items</h1>     
-      <div class="flex justify-end">
-      </div>  
-      <div class="flex justify-between mt-8">
-        <a id="prices" href="veggies.html" class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md">
-            ← Veggies
+  <body>
+    <div class="bg-gray-500 text-white py-8">
+      <div class="flex justify-center mt-2 mb-2">
+        <a
+          href="index.html"
+          class="text-white bg-red-700 hover:bg-blue-700 px-4 py-2 mb-3 mt-0 rounded-md"
+        >
+          Home
         </a>
       </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
-        <div class="relative text-center border-2 border-white p-4">
-          <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-            <img src="img/headphones.png" alt="headphones" class="mx-auto w-24" />
-            <div class="text-white">$44.95</div>
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+          <div class="pt-2 ml-0 flex flex-col-2 text-4xl">
+            Fresh-Fleet
+            <img class="logo-image" src="img/logo1.png" alt="grocerycart" />
           </div>
-          <h2 class="mt-2">Headphones</h2>
-          <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="Headphones" data-price="44.95">Add to Cart</button>
         </div>
-        <div class="relative text-center border-2 border-white p-4">
-          <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-            <img src="img/camera.png" alt="camera" class="mx-auto w-24" />
-            <div class="text-white">$128.75</div>
-          </div>
-          <h2 class="mt-2">Nikon Camera</h2>
-          <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="Nikon Camera" data-price="128.75">Add to Cart</button>
+        <div class="flex justify-center">
+          <h1
+            class="text-4xl font-bold text-center bg-red-700 px-4 rounded -xl mb-8 justify-end"
+          >
+            More Items
+          </h1>
         </div>
-        <div class="relative text-center border-2 border-white p-4">
-          <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-            <img src="img/cooler.png" alt="cooler" class="mx-auto w-24" />
-            <div class="text-white">$158.99</div>
+        <div class="flex justify-start">
+          <div class="flex justify-between mt-8">
+            <a
+              id="prices"
+              href="veggies.html"
+              class="text-white bg-red-700 hover:bg-red-600 px-4 py-2 rounded-md"
+            >
+              ← Veggies
+            </a>
           </div>
-          <h2 class="mt-2">Evaporative Cooler</h2>
-          <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="Evaporative Cooler" data-price="158.99">Add to Cart</button>
         </div>
-        <div class="relative text-center border-2 border-white p-4">
-            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-              <img src="img/television.png" alt="television" class="mx-auto w-24" />
-              <div class="text-white">$499.99</div>
-            </div>
-            <h2 class="mt-2">46" LG Television</h2>
-            <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="LG Television" data-price="499.99">Add to Cart</button>
-          </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4"
+        >
           <div class="relative text-center border-2 border-white p-4">
-            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-              <img src="img/bloodpressure.png" alt="BP monitor" class="mx-auto w-24" />
+            <div
+              id="inst-headphones"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
+              <a href="javascript:void(0)" onclick="toggleInfo('headphones')">
+                <img src="img/headphones.png" alt="headphones" class="mx-auto
+                w-24 transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-headphones" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-1 mt-2 px-1 py-1"
+                >
+                  These headphones feature rich surround-sound effects and are
+                  noise canceling. They are perfect for listening to music and
+                  watching movies on the go.
+                </p>
+              </div>
               <div class="text-white">$44.95</div>
             </div>
-            <h2 class="mt-2">Blood Pressure Monitor</h2>
-            <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="Blood Pressure Monitor" data-price="44.95">Add to Cart</button>
+            <h2 class="mt-1">Headphones</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="Headphones"
+              data-price="44.95"
+            >
+              Add to Cart
+            </button>
           </div>
           <div class="relative text-center border-2 border-white p-4">
-            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-              <img src="img/loader.png" alt="Loader" class="mx-auto w-24" />
+            <div
+              id="inst-camera"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
+              <a href="javascript:void(0)" onclick="toggleInfo('camera')">
+                <img src="img/camera.png" alt="camera" class="mx-auto w-24
+                transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-camera" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-1 mt-2 px-1 py-1"
+                >
+                  The Nikon Coolpix S100 is a compact digital camera that
+                  features a 16.1-megapixel CMOS sensor. It features a 3.2 inch
+                  921k-dot LCD screen and can record 720p HD video.
+                </p>
+              </div>
+              <div class="text-white">$128.75</div>
+            </div>
+            <h2 class="mt-1">Nikon Camera</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="Nikon Camera"
+              data-price="128.75"
+            >
+              Add to Cart
+            </button>
+          </div>
+
+          <div class="relative text-center border-2 border-white p-4">
+            <div
+              id="inst-cooler"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
+              <a href="javascript:void(0)" onclick="toggleInfo('cooler')">
+                <img src="img/cooler.png" alt="cooler" class="mx-auto w-24
+                transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-cooler" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-0.5 mt-0.5 px-1 py-1"
+                >
+                  The Evaporative Cooler is compact, portable, easy-to-use
+                  cooler that can be used to cool your home or office. It is
+                  made of durable materials and has a sleek design. It can cool
+                  a room up to 600 square feet
+                </p>
+              </div>
+              <div class="text-white">$158.99</div>
+            </div>
+            <h2 class="mt-1">Evaporative Cooler</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="Evaporative Cooler"
+              data-price="158.99"
+            >
+              Add to Cart
+            </button>
+          </div>
+
+          <div class="relative text-center border-2 border-white p-4">
+            <div
+              id="inst-television"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
+              <a href="javascript:void(0)" onclick="toggleInfo('television')">
+                <img src="img/television.png" alt="cooler" class="mx-auto w-24
+                transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-television" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-1 mt-2 px-1 py-1"
+                >
+                  The LG 48" LED TV is a great choice for those who want to
+                  watch movies and TV shows on a large visually appealing
+                  screen. It has a sleek design and is easy to use.
+                </p>
+              </div>
+              <div class="text-white">$499.99</div>
+            </div>
+            <h2 class="mt-1">48" LG Television</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item='48" LG Television'
+              data-price="499.99"
+            >
+              Add to Cart
+            </button>
+          </div>
+
+          <div class="relative text-center border-2 border-white p-4">
+            <div
+              id="inst-loader"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
+              <a href="javascript:void(0)" onclick="toggleInfo('loader')">
+                <img src="img/loader.png" alt="monitor" class="mx-auto w-24
+                transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-loader" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-0.5 mt-1 px-1 py-1"
+                >
+                  The Caterpillar Front-End Loader is a great choice for those
+                  who want to move lots of material from one place to another
+                  and needs a large machine that can handle the job and is
+                  extremely easy to operate.
+                </p>
+              </div>
               <div class="text-white">$87,000.00</div>
             </div>
-            <h2 class="mt-2">Caterpllar Front-End Loader</h2>
-            <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="Cat Front-End Loader" data-price="87000.00">Add to Cart</button>
+            <h2 class="mt-1">Caterpillar Front-End Loader</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="Cat Front-End Loader"
+              data-price="87000.00"
+            >
+              Add to Cart
+            </button>
           </div>
+
           <div class="relative text-center border-2 border-white p-4">
-            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-              <img src="img/gascan.png" alt="gas can" class="mx-auto w-24" />
+            <div
+              id="inst-monitor"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
+              <a href="javascript:void(0)" onclick="toggleInfo('monitor')">
+                <img src="img/bloodpressure.png" alt="monitor" class="mx-auto
+                w-24 transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-monitor" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-1 mt-2 px-1 py-1"
+                >
+                  The X-rWV Blood Pressure Monitor is reliable, accurate and is
+                  perfect for those who want to monitor their blood pressure. It
+                  is easy to use and has a large digital display.
+                </p>
+              </div>
+              <div class="text-white">$44.95</div>
+            </div>
+            <h2 class="mt-1">Blood Pressure Monitor</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="Blood Pressure Monitor"
+              data-price="44.95"
+            >
+              Add to Cart
+            </button>
+          </div>
+
+          <div class="relative text-center border-2 border-white p-4">
+            <div
+              id="inst-gascan"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+              <a href="javascript:void(0)" onclick="toggleInfo('gascan')">
+                <img src="img/gascan.png" alt="gas can" class="mx-auto w-24
+                transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-gascan" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-0.2 mt-0.5 px-1 py-1"
+                >
+                  We are proud to offer this gas can for you. It holds 5 gallons
+                  of gas and is easy to vent and pour. It is constructed of
+                  quality non-toxic materials. This gas can will serve you well
+                  for many years to come.
+                </p>
+              </div>
               <div class="text-white">$18.50</div>
             </div>
-            <h2 class="mt-2">5 gallon Gas Can</h2>
-            <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="5 Gallon Gas Can" data-price="18.50">Add to Cart</button>
+            <h2 class="mt-1">5 gallon Gas Can</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="5 gallon Gas Can"
+              data-price="18.50"
+            >
+              Add to Cart
+            </button>
           </div>
+
           <div class="relative text-center border-2 border-white p-4">
-            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-              <img src="img/bracelet.png" alt="bracelet" class="mx-auto w-24" />
+            <div
+              id="inst-bracelet"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+              <a href="javascript:void(0)" onclick="toggleInfo('bracelet')">
+                <img src="img/bracelet.png" alt="bracelet" class="mx-auto w-24
+                transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-bracelet" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-1 mt-2 px-1 py-1"
+                >
+                  This is a very high quality bracelet. The green beaded
+                  bracelet is stylish and very comfortable to wear. It looks
+                  good and will complement any outfit you wear.
+                </p>
+              </div>
               <div class="text-white">$16.25</div>
             </div>
-            <h2 class="mt-2">Green Beaded Bracelet</h2>
-            <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="Green Beaded Bracelet" data-price="16.25">Add to Cart</button>
+            <h2 class="mt-1">Green Beaded Bracelet</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="Green Beaded Bracelet"
+              data-price="16.25"
+            >
+              Add to Cart
+            </button>
           </div>
+
           <div class="relative text-center border-2 border-white p-4">
-            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-              <img src="img/scrunchies.png" alt="scrunchies" class="mx-auto w-24" />
+            <div
+              id="inst-scrunchie"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+              <a href="javascript:void(0)" onclick="toggleInfo('scrunchie')">
+                <img src="img/scrunchies.png" alt="scrunchies" class="mx-auto
+                w-24 transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-scrunchie" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-1 mt-2 px-1 py-1"
+                >
+                  This scrunchy 3-pack is a great way to keep your hair out of
+                  your face. They come in three very stylish colors to
+                  compliment any outfit you wear. These scrunchies are
+                  incredibly comfortable and easy to wash.
+                </p>
+              </div>
               <div class="text-white">$6.50</div>
             </div>
-            <h2 class="mt-2">3 Piece Scrunchy Set</h2>
-            <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="3 Piece Scrunchy Set" data-price="6.50">Add to Cart</button>
+            <h2 class="mt-1">3 Piece Scrunchy Set</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="3 Piece Scrunchy Set"
+              data-price="6.50"
+            >
+              Add to Cart
+            </button>
           </div>
+
           <div class="relative text-center border-2 border-white p-4">
-            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-              <img src="img/chair.png" alt="chair" class="mx-auto w-24" />
+            <div
+              id="inst-chair"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+              <a href="javascript:void(0)" onclick="toggleInfo('chair')">
+                <img src="img/chair.png" alt="chair" class="mx-auto w-24
+                transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-chair" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-0.5 mt-0.5 px-1 py-1"
+                >
+                  This is one of the most comfortable chairs we have ever tried,
+                  and we know you will agree. It is made of high quality
+                  materials and is very sturdy. It has an adjustable back and
+                  seat and is easy to keep clean.
+                </p>
+              </div>
+
               <div class="text-white">$109.55</div>
             </div>
-            <h2 class="mt-2">High Back Office Chair</h2>
-            <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="High Back Office Chair" data-price="109.55">Add to Cart</button>
+            <h2 class="mt-1">High Back Office Chair</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="High Back Office Chair"
+              data-price="109.55"
+            >
+              Add to Cart
+            </button>
           </div>
+
           <div class="relative text-center border-2 border-white p-4">
-            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-              <img src="img/ball.png" alt="soccer ball" class="mx-auto w-24" />
+            <div
+              id="inst-ball"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+              <a href="javascript:void(0)" onclick="toggleInfo('ball')">
+                <img src="img/ball.png" alt="soccer ball" class="mx-auto w-24
+                transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-ball" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-0.5 mt-0.5 px-1 py-1"
+                >
+                  This is a very high quality soccer ball. This blue soccer ball
+                  looks great and is very fun to play with. The material is
+                  durable and will last you a long time. Easy to wash off the
+                  grass stains and dirt.
+                </p>
+              </div>
               <div class="text-white">$29.65</div>
             </div>
-            <h2 class="mt-2">Adidas Soccer Ball</h2>
-            <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="Adidas Soccer Ball" data-price="29.65">Add to Cart</button>
+            <h2 class="mt-1">Adidas Soccer Ball</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="Adidas Soccer Ball"
+              data-price="29.65"
+            >
+              Add to Cart
+            </button>
           </div>
+
           <div class="relative text-center border-2 border-white p-4">
-            <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
-              <img src="img/cutlery.png" alt="cutlery" class="mx-auto w-24" />
+            <div
+              id="inst-cutlery"
+              class="absolute top-0 right-0 bg-red-900 text-white text-xs px-2 py-1"
+            >
+              Click image for more info
+            </div>
+            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+              <a href="javascript:void(0)" onclick="toggleInfo('cutlery')">
+                <img src="img/cutlery.png" alt="cutlery" class="mx-auto w-24
+                transform-none transition-transform duration-300
+                hover:scale-125"" />
+              </a>
+              <div id="info-cutlery" style="display: none" class="w-100">
+                <p
+                  class="bg-red-900 text-white text-xs font-thin mb-0.5 mt-0.5 px-1 py-1"
+                >
+                  This is a very high quality cutlery set. This set includes a
+                  fork, knife, and spoon. This set is machine washable and will
+                  last you a long time. Bon appetite to you and your seven
+                  friends or family!
+                </p>
+              </div>
               <div class="text-white">$33.25</div>
             </div>
-            <h2 class="mt-2">8 Place Cutlery Set</h2>
-            <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="8 Place Cutlery Set" data-price="33.25">Add to Cart</button>
+            <h2 class="mt-1">8 Place Cutlery Set</h2>
+            <button
+              class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md"
+              data-item="8 Place Cutlery Set"
+              data-price="33.25"
+            >
+              Add to Cart
+            </button>
           </div>
-      </div> 
-       
+        </div>
       </div>
       <div class="mt-8 bg-gray-400 pl-1 pr-1 rounded-lg">
-        <h2 class="bg-red-800 text-2xl py-1 px-10 font-bold rounded-lg text-white">My Cart</h2>
-        <ul class="mt-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 ml-2 text-black text-xl" id="cart-items"></ul>
+        <h2
+          class="bg-red-800 text-2xl py-1 px-10 font-bold rounded-lg text-white"
+        >
+          My Cart
+        </h2>
+        <ul
+          class="mt-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 ml-2 text-black text-xl"
+          id="cart-items"
+        ></ul>
         <div class="mt-4">
-          <h2 class="font-bold text-2xl text-black">Total Price: $<span id="total-price">0.00</span></h2>
+          <h2 class="font-bold text-2xl text-black">
+            Total Price: $<span id="total-price">0.00</span>
+          </h2>
           <div class="mt-4">
-            <button id="clear-button" class="bg-red-500 text-white px-4 py-2 rounded-md my-4 mx-4">Clear Cart</button>
+            <button
+              id="clear-button"
+              class="bg-red-500 text-white px-4 py-2 rounded-md my-4 mx-4"
+            >
+              Clear Cart
+            </button>
           </div>
           <div class="mt-4">
-            <button id="checkout-button" class="bg-green-700 text-white px-4 py-2 rounded-md my-4 mx-4">Checkout</button>
+            <button
+              id="checkout-button"
+              class="bg-green-700 text-white px-4 py-2 rounded-md my-4 mx-4"
+            >
+              Checkout
+            </button>
           </div>
         </div>
       </div>
@@ -183,117 +554,136 @@
 
     <script>
       const cartItemsElement = document.getElementById('cart-items');
-const addToCartButtons = document.getElementsByClassName('add-to-cart');
-const totalPriceElement = document.getElementById('total-price');
-const clearButton = document.getElementById('clear-button');
-const checkoutButton = document.getElementById('checkout-button');
-const saveCartItems = [];
-let totalPrice = 0;
+      const addToCartButtons = document.getElementsByClassName('add-to-cart');
+      const totalPriceElement = document.getElementById('total-price');
+      const clearButton = document.getElementById('clear-button');
+      const checkoutButton = document.getElementById('checkout-button');
+      const saveCartItems = [];
+      let totalPrice = 0;
 
-// Load cart items from local storage on page load
-loadCartItems();
+      // Load cart items from local storage on page load
+      loadCartItems();
 
-// Add event listener to each "Add to Cart" button
-Array.from(addToCartButtons).forEach(function (button) {
-  button.addEventListener('click', function () {
-    const itemName = button.getAttribute('data-item');
-    const itemPrice = parseFloat(button.getAttribute('data-price'));
-    const newItem = document.createElement('li');
-    newItem.classList.add('cart-item');
-    const itemNameSpan = document.createElement('span');
-    itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.classList.add('remove-button', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-lg');
-    removeButton.addEventListener('click', function () {
-      removeCartItem(itemName, itemPrice);
-      newItem.remove();
-    });
-    newItem.appendChild(itemNameSpan);
-    newItem.appendChild(removeButton);
-    cartItemsElement.appendChild(newItem);
-    totalPrice += itemPrice;
-    totalPriceElement.textContent = totalPrice.toFixed(2);
-    saveCartItem(itemName, itemPrice);
+      // Add event listener to each "Add to Cart" button
+      Array.from(addToCartButtons).forEach(function (button) {
+        button.addEventListener('click', function () {
+          const itemName = button.getAttribute('data-item');
+          const itemPrice = parseFloat(button.getAttribute('data-price'));
+          const newItem = document.createElement('li');
+          newItem.classList.add('cart-item');
+          const itemNameSpan = document.createElement('span');
+          itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Remove';
+          removeButton.classList.add(
+            'remove-button',
+            'bg-red-500',
+            'text-white',
+            'px-2',
+            'py-1',
+            'rounded-lg'
+          );
+          removeButton.addEventListener('click', function () {
+            removeCartItem(itemName, itemPrice);
+            newItem.remove();
+          });
+          newItem.appendChild(itemNameSpan);
+          newItem.appendChild(removeButton);
+          cartItemsElement.appendChild(newItem);
+          totalPrice += itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+          saveCartItem(itemName, itemPrice);
+        });
+      });
 
-  });
-});
+      // Load cart items from local storage
+      function loadCartItems() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.forEach(function (itemName) {
+          const itemPrice = parseFloat(
+            localStorage.getItem(`price-${itemName}`)
+          );
+          const newItem = document.createElement('li');
+          newItem.classList.add('cart-item');
+          const itemNameSpan = document.createElement('span');
+          itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Remove';
+          removeButton.classList.add(
+            'remove-button',
+            'bg-red-500',
+            'text-white',
+            'px-2',
+            'py-1',
+            'rounded-md'
+          );
+          removeButton.addEventListener('click', function () {
+            removeCartItem(itemName, itemPrice);
+            newItem.remove();
+          });
+          newItem.appendChild(itemNameSpan);
+          newItem.appendChild(removeButton);
+          cartItemsElement.appendChild(newItem);
+          totalPrice += itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+        });
+      }
 
-// Load cart items from local storage
-function loadCartItems() {
-  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  cartItems.forEach(function (itemName) {
-    const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
-    const newItem = document.createElement('li');
-    newItem.classList.add('cart-item');
-    const itemNameSpan = document.createElement('span');
-    itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.classList.add('remove-button', 'bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-md');
-    removeButton.addEventListener('click', function () {
-      removeCartItem(itemName, itemPrice);
-      newItem.remove();
-    });
-    newItem.appendChild(itemNameSpan);
-    newItem.appendChild(removeButton);
-    cartItemsElement.appendChild(newItem);
-    totalPrice += itemPrice;
-    totalPriceElement.textContent = totalPrice.toFixed(2);
-  });
-}
+      // Save cart item to local storageInfo not defined.
+      function saveCartItem(itemName, itemPrice) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.push(itemName);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        localStorage.setItem(`price-${itemName}`, itemPrice);
+      }
 
-// Save cart item to local storage
-function saveCartItem(itemName, itemPrice) {
-  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  cartItems.push(itemName);
-  localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  localStorage.setItem(`price-${itemName}`, itemPrice);
-}
+      // Remove cart item from local storage
+      function removeCartItem(itemName, itemPrice) {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const index = cartItems.indexOf(itemName);
+        if (index > -1) {
+          cartItems.splice(index, 1);
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+          localStorage.removeItem(`price-${itemName}`);
 
-// Remove cart item from local storage
-function removeCartItem(itemName, itemPrice) {
-  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  const index = cartItems.indexOf(itemName);
-  if (index > -1) {
-    cartItems.splice(index, 1);
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    localStorage.removeItem(`price-${itemName}`);
+          // Update the total price
+          totalPrice -= itemPrice;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
 
-    // Update the total price
-    totalPrice -= itemPrice;
-    totalPriceElement.textContent = totalPrice.toFixed(2);
+          // Check if the cart is empty and update the total price to zero
+          if (cartItems.length === 0) {
+            totalPrice = 0;
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+          }
+        }
+      }
 
-    // Check if the cart is empty and update the total price to zero
-    if (cartItems.length === 0) {
-      totalPrice = 0;
-      totalPriceElement.textContent = totalPrice.toFixed(2);
-    }
-  }
-}
+      // Clear cart items and local storage
+      clearButton.addEventListener('click', function () {
+        cartItemsElement.innerHTML = '';
+        totalPrice = 0;
+        totalPriceElement.textContent = totalPrice.toFixed(2);
+        localStorage.clear();
+      });
 
-// Clear cart items and local storage
-clearButton.addEventListener('click', function () {
-  cartItemsElement.innerHTML = '';
-  totalPrice = 0;
-  totalPriceElement.textContent = totalPrice.toFixed(2);
-  localStorage.clear();
-});
-
-// Checkout
-checkoutButton.addEventListener('click', function () {
-  if (totalPrice > 0) {
-    alert(`Fresh-Fleet says:\n\nThank you for your purchase!\n\nTotal Price: $${totalPrice.toFixed(2)}`);
-    cartItemsElement.innerHTML = '';
-    totalPrice = 0;
-    totalPriceElement.textContent = totalPrice.toFixed(2);
-    localStorage.clear();
-  } else {
-    alert('Your cart is empty. Please add items to your cart before checking out.');
-  }
-});
-
+      // Checkout
+      checkoutButton.addEventListener('click', function () {
+        if (totalPrice > 0) {
+          alert(
+            `Fresh-Fleet says:\n\nThank you for your purchase!\n\nTotal Price: $${totalPrice.toFixed(
+              2
+            )}`
+          );
+          cartItemsElement.innerHTML = '';
+          totalPrice = 0;
+          totalPriceElement.textContent = totalPrice.toFixed(2);
+          localStorage.clear();
+        } else {
+          alert(
+            'Your cart is empty. Please add items to your cart before checking out.'
+          );
+        }
+      });
     </script>
-                                 
   </body>
 </html>
