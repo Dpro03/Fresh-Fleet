@@ -192,16 +192,29 @@
         const clearButton = document.getElementById('clear-button');
         const checkoutButton = document.getElementById('checkout-button');
         const saveCartItems = [];
-        let totalPrice = 0;
-  
+        const cartData = {
+          items: {},
+          totalPrice: calculateTotalPrice(),
+        };
+      
         // Load cart items from local storage on page load
         loadCartItems();
-  
+      
+        // Calculate total price
+        function calculateTotalPrice() {
+          const savedTotalPrice = parseFloat(localStorage.getItem('totalPrice'));
+          return !isNaN(savedTotalPrice) ? savedTotalPrice : 0;
+        }
+      
         // Add event listener to each "Add to Cart" button
         Array.from(addToCartButtons).forEach(function (button) {
           button.addEventListener('click', function () {
             const itemName = button.getAttribute('data-item');
             const itemPrice = parseFloat(button.getAttribute('data-price'));
+      
+            // Increment the item quantity or set it to 1 if it doesn't exist
+            cartData.items[itemName] = (cartData.items[itemName] || 0) + 1;
+      
             const newItem = document.createElement('li');
             newItem.classList.add('cart-item', 'mb-2');
             const itemNameSpan = document.createElement('span');
@@ -223,93 +236,91 @@
             newItem.appendChild(itemNameSpan);
             newItem.appendChild(removeButton);
             cartItemsElement.appendChild(newItem);
-            totalPrice += itemPrice;
-            totalPriceElement.textContent = `${totalPrice.toFixed(2)}`;
+            cartData.totalPrice += itemPrice;
+            totalPriceElement.textContent = `${cartData.totalPrice.toFixed(2)}`;
             saveCartItem(itemName, itemPrice);
           });
         });
-  
+      
         // Load cart items from local storage
         function loadCartItems() {
-          const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-          cartItems.forEach(function (itemName) {
-            const itemPrice = parseFloat(
-              localStorage.getItem(`price-${itemName}`)
-            );
-            const newItem = document.createElement('li');
-            newItem.classList.add('cart-item', 'mb-2');
-            const itemNameSpan = document.createElement('span');
-            itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-            const removeButton = document.createElement('button');
-            removeButton.textContent = 'Remove';
-            removeButton.classList.add(
-              'remove-button',
-              'bg-red-500',
-              'text-white',
-              'px-2',
-              'py-1',
-              'rounded-md'
-            );
-            removeButton.addEventListener('click', function () {
-              removeCartItem(itemName, itemPrice);
-              newItem.remove();
-            });
-            newItem.appendChild(itemNameSpan);
-            newItem.appendChild(removeButton);
-            cartItemsElement.appendChild(newItem);
-            totalPrice += itemPrice;
-            totalPriceElement.textContent = `${totalPrice.toFixed(
-              2
-            )}`;
-          });
-        }
-  
-        // Save cart item to local storage
-        function saveCartItem(itemName, itemPrice) {
-          const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-          cartItems.push(itemName);
-          localStorage.setItem('cartItems', JSON.stringify(cartItems));
-          localStorage.setItem(`price-${itemName}`, itemPrice);
-        }
-  
-        // Remove cart item from local storage
-        function removeCartItem(itemName, itemPrice) {
-          const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-          const index = cartItems.indexOf(itemName);
-          if (index > -1) {
-            cartItems.splice(index, 1);
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-            localStorage.removeItem(`price-${itemName}`);
-  
-            // Update the total price
-            totalPrice -= itemPrice;
-            totalPriceElement.textContent = `${totalPrice.toFixed(
-              2
-            )}`;
-  
-            // Check if the cart is empty and update the total price to zero
-            if (cartItems.length === 0) {
-              totalPrice = 0;
-              totalPriceElement.textContent = `${totalPrice.toFixed(
-                2
-              )}`;
+          const savedCartData = JSON.parse(localStorage.getItem('cartData'));
+          if (savedCartData) {
+            cartData.items = savedCartData.items;
+            for (const itemName in cartData.items) {
+              const itemQuantity = cartData.items[itemName];
+              const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
+              if (!isNaN(itemPrice)) {
+                for (let i = 0; i < itemQuantity; i++) {
+                  const newItem = document.createElement('li');
+                  newItem.classList.add('cart-item', 'mb-2');
+                  const itemNameSpan = document.createElement('span');
+                  itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+                  const removeButton = document.createElement('button');
+                  removeButton.textContent = 'Remove';
+                  removeButton.classList.add(
+                    'remove-button',
+                    'bg-red-500',
+                    'text-white',
+                    'px-2',
+                    'py-1',
+                    'rounded-md'
+                  );
+                  removeButton.addEventListener('click', function () {
+                    removeCartItem(itemName, itemPrice);
+                    newItem.remove();
+                  });
+                  newItem.appendChild(itemNameSpan);
+                  newItem.appendChild(removeButton);
+                  cartItemsElement.appendChild(newItem);
+                  cartData.totalPrice += itemPrice;
+                }
+              }
             }
+            totalPriceElement.textContent = `${cartData.totalPrice.toFixed(2)}`;
           }
         }
-  
+      
+        // Save cart item to local storage
+        function saveCartItem(itemName, itemPrice) {
+          const savedCartData = JSON.parse(localStorage.getItem('cartData')) || { items: {} };
+          savedCartData.items = cartData.items;
+          localStorage.setItem('cartData', JSON.stringify(savedCartData));
+          localStorage.setItem(`price-${itemName}`, itemPrice);
+        }
+      
+        // Remove cart item from local storage
+        function removeCartItem(itemName, itemPrice) {
+          const savedCartData = JSON.parse(localStorage.getItem('cartData')) || { items: {} };
+          const itemQuantity = savedCartData.items[itemName];
+          if (itemQuantity > 1) {
+            savedCartData.items[itemName] = itemQuantity - 1;
+            localStorage.setItem('cartData', JSON.stringify(savedCartData));
+          } else {
+            delete savedCartData.items[itemName];
+            localStorage.setItem('cartData', JSON.stringify(savedCartData));
+            localStorage.removeItem(`price-${itemName}`);
+          }
+      
+          // Update the total price
+          cartData.totalPrice -= itemPrice;
+          totalPriceElement.textContent = `${cartData.totalPrice.toFixed(2)}`;
+          localStorage.setItem('totalPrice', cartData.totalPrice.toString());
+        }
+      
         // Clear cart items and local storage
         clearButton.addEventListener('click', function () {
           cartItemsElement.innerHTML = '';
-          totalPrice = 0;
-          totalPriceElement.textContent = `${totalPrice.toFixed(
-            2
-          )}`;
+          cartData.items = {};
+          cartData.totalPrice = 0;
+          totalPriceElement.textContent = `${cartData.totalPrice.toFixed(2)}`;
           localStorage.clear();
         });
-  
+      
         checkoutButton.addEventListener('click', function () {
-          const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  
+          const savedCartData = JSON.parse(localStorage.getItem('cartData')) || { items: {} };
+          const cartItems = Object.keys(savedCartData.items);
+      
           var modal = document.createElement('div');
           modal.classList.add(
             'fixed',
@@ -319,7 +330,7 @@
             'justify-center',
             'z-50'
           );
-  
+      
           var messageDiv = document.createElement('div');
           messageDiv.classList.add(
             'bg-gray-300',
@@ -333,72 +344,64 @@
             'max-w-2xl',
             'border-2',
             'border-red-500'
-  
           );
           modal.appendChild(messageDiv);
-  
+      
           var title = document.createElement('p');
           title.textContent = 'Fresh-Fleet';
           title.classList.add('mb-4', 'font-bold', 'uppercase', 'text-2xl');
           messageDiv.appendChild(title);
-  
+      
           var thankYou = document.createElement('p');
           thankYou.textContent = 'Thank you for your purchase!';
           thankYou.classList.add('mb-4');
           messageDiv.appendChild(thankYou);
-  
+      
           var yourItems = document.createElement('p');
           yourItems.textContent = 'Your items:';
           yourItems.classList.add('mb-4');
           messageDiv.appendChild(yourItems);
-  
+      
           var itemsList = document.createElement('ol');
           itemsList.classList.add('text-left');
           messageDiv.appendChild(itemsList);
-  
+      
           cartItems.forEach(function (itemName) {
-            const itemPrice = parseFloat(
-              localStorage.getItem(`price-${itemName}`)
-            );
-            var item = document.createElement('li');
-            item.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-            item.classList.add('mb-2');
-            itemsList.appendChild(item);
+            const itemQuantity = savedCartData.items[itemName];
+            const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
+            if (!isNaN(itemPrice)) {
+              for (let i = 0; i < itemQuantity; i++) {
+                var item = document.createElement('li');
+                item.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+                item.classList.add('mb-2');
+                itemsList.appendChild(item);
+              }
+            }
           });
-  
+      
           var totalPriceMessage = document.createElement('p');
-          totalPriceMessage.textContent = `Total Price: $${totalPrice.toFixed(
-            2
-          )}`;
+          totalPriceMessage.textContent = `Total Price: $${cartData.totalPrice.toFixed(2)}`;
           totalPriceMessage.classList.add('mt-4');
           messageDiv.appendChild(totalPriceMessage);
-  
+      
           var closeButton = document.createElement('button');
           closeButton.textContent = 'Close';
-          closeButton.classList.add(
-            'mt-6',
-            'px-4',
-            'py-2',
-            'bg-green-600',
-            'rounded'
-          );
+          closeButton.classList.add('mt-6', 'px-4', 'py-2', 'bg-green-600', 'rounded');
           closeButton.addEventListener('click', function () {
             modal.remove();
           });
           messageDiv.appendChild(closeButton);
-  
+      
           document.body.appendChild(modal);
-  
+      
           cartItemsElement.innerHTML = '';
-          totalPrice = 0;
-          totalPriceElement.textContent = `${totalPrice.toFixed(2)}`;
+          cartData.items = {};
+          cartData.totalPrice = 0;
+          totalPriceElement.textContent = `${cartData.totalPrice.toFixed(2)}`;
           localStorage.clear();
         });
-  
       </script>
-  
-      
-    
+        
   </body>
 </html>
 
