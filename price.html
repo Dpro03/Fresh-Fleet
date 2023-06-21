@@ -73,8 +73,8 @@
             <img src="img/apple.png" alt="apple" class="mx-auto w-24" />
             <div class="text-white">$1.50</div>
           </div>
-          <h2 class="mt-2">Apple</h2>
-          <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="Apple" data-price="1.50">Add to Cart</button>
+          <h2 class="mt-2">Apples</h2>
+          <button class="add-to-cart bg-green-600 text-white px-4 py-2 rounded-md" data-item="Apples" data-price="1.50">Add to Cart</button>
         </div>
         <div class="relative text-center border-2 border-white p-4">
           <div class="relative h-30 w-40 mx-auto overflow-hidden transition-transform duration-300 transform-gpu hover:scale-125">
@@ -215,7 +215,7 @@
           cartData.items[itemName] = (cartData.items[itemName] || 0) + 1;
     
           const newItem = document.createElement('li');
-          newItem.classList.add('cart-item', 'mb-2');
+          newItem.classList.add('cart-item', 'mb-2', 'text-black', 'ml-14', 'mr-4');
           const itemNameSpan = document.createElement('span');
           itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
           const removeButton = document.createElement('button');
@@ -334,7 +334,7 @@
         messageDiv.classList.add(
           'bg-gray-300',
           'text-black',
-          'p-8',
+          'pt-1', 'pb-2', 'px-4',
           'rounded-2xl',
           'shadow-lg',
           'text-center',
@@ -345,20 +345,25 @@
           'border-red-500'
         );
         modal.appendChild(messageDiv);
+
+        var instructions = document.createElement('p');
+        instructions.innerHTML = 'To close the receipt, scroll down<br> and click the button below.';
+        instructions.classList.add('mt--3', 'mb-4', 'uppercase', 'text-xs', 'text-black', 'text-center');
+        messageDiv.appendChild(instructions);
     
         var title = document.createElement('p');
         title.textContent = 'Fresh-Fleet';
-        title.classList.add('mb-4', 'font-bold', 'uppercase', 'text-2xl');
+        title.classList.add('mb-4', 'font-bold', 'uppercase', 'text-3xl', 'text-red-700', 'text-center', 'border-2', 'border-red-500');
         messageDiv.appendChild(title);
     
         var thankYou = document.createElement('p');
         thankYou.textContent = 'Thank you for your purchase!';
-        thankYou.classList.add('mb-4');
+        thankYou.classList.add('mb-4', 'text-xl', 'text-black', 'text-center');
         messageDiv.appendChild(thankYou);
     
         var yourItems = document.createElement('p');
         yourItems.textContent = 'Your items:';
-        yourItems.classList.add('mb-4');
+        yourItems.classList.add('mb-4', 'text-xl', 'text-black', 'text-center');
         messageDiv.appendChild(yourItems);
     
         var itemsList = document.createElement('ol');
@@ -372,7 +377,7 @@
             for (let i = 0; i < itemQuantity; i++) {
               var item = document.createElement('li');
               item.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-              item.classList.add('mb-2');
+              item.classList.add('mb-1', 'px-2', 'py-2', 'text-left', 'text-black');
               itemsList.appendChild(item);
             }
           }

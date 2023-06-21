@@ -216,7 +216,7 @@
             cartData.items[itemName] = (cartData.items[itemName] || 0) + 1;
       
             const newItem = document.createElement('li');
-            newItem.classList.add('cart-item', 'mb-2');
+            newItem.classList.add('cart-item', 'mb-2', 'text-black', 'ml-14', 'mr-4');
             const itemNameSpan = document.createElement('span');
             itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
             const removeButton = document.createElement('button');
@@ -346,62 +346,67 @@
             'border-red-500'
           );
           modal.appendChild(messageDiv);
-      
-          var title = document.createElement('p');
-          title.textContent = 'Fresh-Fleet';
-          title.classList.add('mb-4', 'font-bold', 'uppercase', 'text-2xl');
-          messageDiv.appendChild(title);
-      
-          var thankYou = document.createElement('p');
-          thankYou.textContent = 'Thank you for your purchase!';
-          thankYou.classList.add('mb-4');
-          messageDiv.appendChild(thankYou);
-      
-          var yourItems = document.createElement('p');
-          yourItems.textContent = 'Your items:';
-          yourItems.classList.add('mb-4');
-          messageDiv.appendChild(yourItems);
-      
-          var itemsList = document.createElement('ol');
-          itemsList.classList.add('text-left');
-          messageDiv.appendChild(itemsList);
-      
-          cartItems.forEach(function (itemName) {
-            const itemQuantity = savedCartData.items[itemName];
-            const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
-            if (!isNaN(itemPrice)) {
-              for (let i = 0; i < itemQuantity; i++) {
-                var item = document.createElement('li');
-                item.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-                item.classList.add('mb-2');
-                itemsList.appendChild(item);
-              }
-            }
-          });
-      
-          var totalPriceMessage = document.createElement('p');
-          totalPriceMessage.textContent = `Total Price: $${cartData.totalPrice.toFixed(2)}`;
-          totalPriceMessage.classList.add('mt-4');
-          messageDiv.appendChild(totalPriceMessage);
-      
-          var closeButton = document.createElement('button');
-          closeButton.textContent = 'Close';
-          closeButton.classList.add('mt-6', 'px-4', 'py-2', 'bg-green-600', 'rounded');
-          closeButton.addEventListener('click', function () {
-            modal.remove();
-          });
-          messageDiv.appendChild(closeButton);
-      
-          document.body.appendChild(modal);
-      
-          cartItemsElement.innerHTML = '';
-          cartData.items = {};
-          cartData.totalPrice = 0;
-          totalPriceElement.textContent = `${cartData.totalPrice.toFixed(2)}`;
-          localStorage.clear();
-        });
-      </script>
-        
+
+var instructions = document.createElement('p');
+instructions.innerHTML = 'To close the receipt, scroll down<br> and click the button below.';
+instructions.classList.add('mt--3', 'mb-4', 'uppercase', 'text-xs', 'text-black', 'text-center');
+messageDiv.appendChild(instructions);
+
+var title = document.createElement('p');
+title.textContent = 'Fresh-Fleet';
+title.classList.add('mb-4', 'font-bold', 'uppercase', 'text-3xl', 'text-red-700', 'text-center', 'border-2', 'border-red-500');
+messageDiv.appendChild(title);
+
+var thankYou = document.createElement('p');
+thankYou.textContent = 'Thank you for your purchase!';
+thankYou.classList.add('mb-4', 'text-xl', 'text-black', 'text-center');
+messageDiv.appendChild(thankYou);
+
+var yourItems = document.createElement('p');
+yourItems.textContent = 'Your items:';
+yourItems.classList.add('mb-4', 'text-xl', 'text-black', 'text-center');
+messageDiv.appendChild(yourItems);
+
+var itemsList = document.createElement('ol');
+itemsList.classList.add('text-left');
+messageDiv.appendChild(itemsList);
+
+cartItems.forEach(function (itemName) {
+  const itemQuantity = savedCartData.items[itemName];
+  const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
+  if (!isNaN(itemPrice)) {
+    for (let i = 0; i < itemQuantity; i++) {
+      var item = document.createElement('li');
+      item.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+      item.classList.add('mb-1', 'px-2', 'py-2', 'text-left', 'text-black');
+      itemsList.appendChild(item);
+    }
+  }
+});
+
+var totalPriceMessage = document.createElement('p');
+totalPriceMessage.textContent = `Total Price: $${cartData.totalPrice.toFixed(2)}`;
+totalPriceMessage.classList.add('mt-4');
+messageDiv.appendChild(totalPriceMessage);
+
+var closeButton = document.createElement('button');
+closeButton.textContent = 'Close';
+closeButton.classList.add('mt-6', 'px-4', 'py-2', 'bg-green-600', 'rounded');
+closeButton.addEventListener('click', function () {
+  modal.remove();
+});
+messageDiv.appendChild(closeButton);
+
+document.body.appendChild(modal);
+
+cartItemsElement.innerHTML = '';
+cartData.items = {};
+cartData.totalPrice = 0;
+totalPriceElement.textContent = `${cartData.totalPrice.toFixed(2)}`;
+localStorage.clear();
+});
+</script>
+
   </body>
 </html>
 

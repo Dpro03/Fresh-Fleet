@@ -1,19 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css"
+    />
     <title>Contact Us</title>
-</head>
-<body>
+  </head>
+  <body class="bg-gray-300">
     <div class="flex justify-center mt-2 mb-2">
-        <a href="index.html" class="text-white bg-red-700 hover:bg-blue-700 px-4 py-2 mb-3 mt-0 rounded-md">
-          Home
-        </a>
+      <a
+        href="index.html"
+        class="text-white bg-red-700 hover:bg-blue-700 px-4 py-2 mb-3 mt-0 rounded-md"
+      >
+        Home
+      </a>
+    </div>
+
+    <div class="flex justify-center items-center">
+      <h1 class="text-center text-4xl mt-8 text-red-600">Fresh-Fleet</h1>
+      <img class="w-16 ml-4" src="img/logo1.png" alt="grocerycart" />
+    </div>
+
+    <h1 class="text-center text-4xl mt-8 mb-4 underline">Contact Us</h1>
+
+    <div class="flex justify-center">
+      <form class="w-1/2 p-6 bg-gray-500 rounded-lg shadow-lg">
+        <div class="mb-6">
+          <label class="block text-gray-100 text-sm font-bold mb-2" for="name"
+            >Name</label
+          >
+          <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="name"
+            type="text"
+            placeholder="Enter your name"
+          />
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-100 text-sm font-bold mb-2" for="email"
+            >Email</label
+          >
+          <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            class="block text-gray-100 text-sm font-bold mb-2"
+            for="message"
+            >Message</label
+          >
+          <textarea
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="message"
+            rows="5"
+            placeholder="Enter your message"
+          ></textarea>
+        </div>
+        <div class="flex justify-center">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="flex justify-center mt-32 mb-0">
+      <div class="bg-gray-900 p-4 rounded-lg shadow-lg text-center">
+        <h2 class="text-xl text-gray-100 font-bold mb-2">Fresh-Fleet</h2>
+        <p class="text-gray-100">123 Main Street</p>
+        <p class="text-gray-100">Freedom, New Hampshire 12345</p>
+        <p class="text-gray-100">Email: info@freshfleet.com</p>
+        <p class="text-gray-100">Phone: 123-456-7890</p>
       </div>
-  
-    <h1 class="text-center text-4xl mt-4 mb-4">Contact Us</h1>
-    
-</body>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

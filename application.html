@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css"
+    />
+    <title>Application Form</title>
+  </head>
+  <body class="bg-gray-400">
+    <div class="flex justify-center mt-2 mb-2">
+      <a
+        href="index.html"
+        class="text-white bg-red-700 hover:bg-blue-700 px-4 py-2 mb-3 mt-0 rounded-md"
+      >
+        Home
+      </a>
+    </div>
+
+    <div class="container mx-auto p-6 bg-gray-300 rounded-lg shadow-lg mt-8">
+      <h1 class="text-2xl font-bold mb-6">Job Application</h1>
+
+      <form>
+        <div class="mb-6">
+          <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
+            >Full Name</label
+          >
+          <input
+            id="name"
+            type="text"
+            placeholder="Enter your full name"
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+
+        <div class="mb-6">
+          <label for="email" class="block text-gray-700 text-sm font-bold mb-2"
+            >Email Address</label
+          >
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter your email address"
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+
+        <div class="mb-6">
+          <label for="phone" class="block text-gray-700 text-sm font-bold mb-2"
+            >Phone Number</label
+          >
+          <input
+            id="phone"
+            type="tel"
+            placeholder="Enter your phone number"
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+
+        <div class="mb-6">
+          <label for="resume" class="block text-gray-700 text-sm font-bold mb-2"
+            >Resume/CV</label
+          >
+          <input
+            id="resume"
+            type="file"
+            accept=".pdf,.doc,.docx"
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <p class="text-gray-500 text-sm mt-1">
+            Upload your resume or CV in PDF or Word format.
+          </p>
+        </div>
+
+        <div class="mb-6">
+          <label
+            for="coverLetter"
+            class="block text-gray-700 text-sm font-bold mb-2"
+            >Cover Letter</label
+          >
+          <textarea
+            id="coverLetter"
+            rows="4"
+            placeholder="Write your cover letter"
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          ></textarea>
+        </div>
+
+        <div class="mb-6">
+          <label
+            for="position"
+            class="block text-gray-700 text-sm font-bold mb-2"
+            >Position</label
+          >
+          <select
+            id="position"
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="" disabled selected>Select a position</option>
+            <option value="driver">Delivery Driver</option>
+            <option value="warehouse">Warehouse Associate</option>
+            <option value="customerService">
+              Customer Service Representative
+            </option>
+            <option value="inventory">Inventory Specialist</option>
+            <option value="qualityControl">Quality Control Inspector</option>
+            <option value="marketing">Marketing Coordinator</option>
+            <option value="it">IT Support Specialist</option>
+            <option value="hr">Human Resources Assistant</option>
+            <option value="finance">Finance Analyst</option>
+          </select>
+        </div>
+
+        <div class="flex justify-center">
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Submit Application
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="flex justify-center mt-8">
+      <div class="bg-gray-900 p-4 rounded-lg w-full text-center">
+        <h2 class="text-xl text-gray-100 font-bold mb-2">Fresh-Fleet</h2>
+        <p class="text-gray-100">123 Main Street</p>
+        <p class="text-gray-100">Freedom, New Hampshire 12345</p>
+        <p class="text-gray-100">Email: info@freshfleet.com</p>
+        <p class="text-gray-100">Phone: 123-456-7890</p>
+      </div>
+    </div>
+  </body>
+</html>
