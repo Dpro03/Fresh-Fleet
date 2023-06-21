@@ -650,14 +650,14 @@
 
           // Update the total price
           totalPrice -= itemPrice;
-          totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(
+          totalPriceElement.textContent = `${totalPrice.toFixed(
             2
           )}`;
 
           // Check if the cart is empty and update the total price to zero
           if (cartItems.length === 0) {
             totalPrice = 0;
-            totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(
+            totalPriceElement.textContent = `${totalPrice.toFixed(
               2
             )}`;
           }
@@ -668,7 +668,7 @@
       clearButton.addEventListener('click', function () {
         cartItemsElement.innerHTML = '';
         totalPrice = 0;
-        totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(
+        totalPriceElement.textContent = `${totalPrice.toFixed(
           2
         )}`;
         localStorage.clear();
@@ -699,7 +699,6 @@
           'max-h-80', // Set a maximum height
           'border-2',
           'border-red-500'
-
         );
         modal.appendChild(messageDiv);
 
@@ -760,7 +759,6 @@
         totalPriceElement.textContent = `${totalPrice.toFixed(2)}`;
         localStorage.clear();
       });
-
     </script>
   </body>
 </html>

@@ -258,7 +258,7 @@
             newItem.appendChild(removeButton);
             cartItemsElement.appendChild(newItem);
             totalPrice += itemPrice;
-            totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(
+            totalPriceElement.textContent = `${totalPrice.toFixed(
               2
             )}`;
           });
@@ -283,14 +283,14 @@
   
             // Update the total price
             totalPrice -= itemPrice;
-            totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(
+            totalPriceElement.textContent = `${totalPrice.toFixed(
               2
             )}`;
   
             // Check if the cart is empty and update the total price to zero
             if (cartItems.length === 0) {
               totalPrice = 0;
-              totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(
+              totalPriceElement.textContent = `${totalPrice.toFixed(
                 2
               )}`;
             }
@@ -301,7 +301,7 @@
         clearButton.addEventListener('click', function () {
           cartItemsElement.innerHTML = '';
           totalPrice = 0;
-          totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(
+          totalPriceElement.textContent = `${totalPrice.toFixed(
             2
           )}`;
           localStorage.clear();
