@@ -216,7 +216,7 @@
             cartData.items[itemName] = (cartData.items[itemName] || 0) + 1;
       
             const newItem = document.createElement('li');
-            newItem.classList.add('cart-item', 'mb-2', 'text-black', 'ml-14', 'mr-4');
+            newItem.classList.add('cart-item', 'mb-2', 'text-black');
             const itemNameSpan = document.createElement('span');
             itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
             const removeButton = document.createElement('button');
@@ -348,7 +348,7 @@
           modal.appendChild(messageDiv);
 
 var instructions = document.createElement('p');
-instructions.innerHTML = 'To close the receipt, scroll down<br> and click the button below.';
+instructions.innerHTML = 'To close this receipt, scroll down<br> and click the button below.';
 instructions.classList.add('mt--3', 'mb-4', 'uppercase', 'text-xs', 'text-black', 'text-center');
 messageDiv.appendChild(instructions);
 

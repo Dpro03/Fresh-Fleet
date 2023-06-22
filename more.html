@@ -314,7 +314,7 @@
             >
               Click image for more info
             </div>
-            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
               <a href="javascript:void(0)" onclick="toggleInfo('gascan')">
                 <img src="img/gascan.png" alt="gas can" class="mx-auto w-24
                 transform-none transition-transform duration-300
@@ -349,7 +349,7 @@
             >
               Click image for more info
             </div>
-            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
               <a href="javascript:void(0)" onclick="toggleInfo('bracelet')">
                 <img src="img/bracelet.png" alt="bracelet" class="mx-auto w-24
                 transform-none transition-transform duration-300
@@ -383,7 +383,7 @@
             >
               Click image for more info
             </div>
-            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
               <a href="javascript:void(0)" onclick="toggleInfo('scrunchie')">
                 <img src="img/scrunchies.png" alt="scrunchies" class="mx-auto
                 w-24 transform-none transition-transform duration-300
@@ -418,7 +418,7 @@
             >
               Click image for more info
             </div>
-            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
               <a href="javascript:void(0)" onclick="toggleInfo('chair')">
                 <img src="img/chair.png" alt="chair" class="mx-auto w-24
                 transform-none transition-transform duration-300
@@ -454,7 +454,7 @@
             >
               Click image for more info
             </div>
-            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
               <a href="javascript:void(0)" onclick="toggleInfo('ball')">
                 <img src="img/ball.png" alt="soccer ball" class="mx-auto w-24
                 transform-none transition-transform duration-300
@@ -489,7 +489,7 @@
             >
               Click image for more info
             </div>
-            <div class="relative h-64 w-40 mx-auto overflow-hidden mt-4">
+            <div class="relative h-64 w-40 mx-auto overflow-hidden">
               <a href="javascript:void(0)" onclick="toggleInfo('cutlery')">
                 <img src="img/cutlery.png" alt="cutlery" class="mx-auto w-24
                 transform-none transition-transform duration-300
@@ -552,7 +552,6 @@
       </div>
     </div>
 
-
     <script>
       const cartItemsElement = document.getElementById('cart-items');
       const addToCartButtons = document.getElementsByClassName('add-to-cart');
@@ -564,27 +563,27 @@
         items: {},
         totalPrice: calculateTotalPrice(),
       };
-    
+
       // Load cart items from local storage on page load
       loadCartItems();
-    
+
       // Calculate total price
       function calculateTotalPrice() {
         const savedTotalPrice = parseFloat(localStorage.getItem('totalPrice'));
         return !isNaN(savedTotalPrice) ? savedTotalPrice : 0;
       }
-    
+
       // Add event listener to each "Add to Cart" button
       Array.from(addToCartButtons).forEach(function (button) {
         button.addEventListener('click', function () {
           const itemName = button.getAttribute('data-item');
           const itemPrice = parseFloat(button.getAttribute('data-price'));
-    
+
           // Increment the item quantity or set it to 1 if it doesn't exist
           cartData.items[itemName] = (cartData.items[itemName] || 0) + 1;
-    
+
           const newItem = document.createElement('li');
-          newItem.classList.add('cart-item', 'mb-2', 'text-black', 'ml-14', 'mr-4');
+          newItem.classList.add('cart-item', 'mb-2', 'text-black');
           const itemNameSpan = document.createElement('span');
           itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
           const removeButton = document.createElement('button');
@@ -609,7 +608,7 @@
           saveCartItem(itemName, itemPrice);
         });
       });
-    
+
       // Load cart items from local storage
       function loadCartItems() {
         const savedCartData = JSON.parse(localStorage.getItem('cartData'));
@@ -617,13 +616,17 @@
           cartData.items = savedCartData.items;
           for (const itemName in cartData.items) {
             const itemQuantity = cartData.items[itemName];
-            const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
+            const itemPrice = parseFloat(
+              localStorage.getItem(`price-${itemName}`)
+            );
             if (!isNaN(itemPrice)) {
               for (let i = 0; i < itemQuantity; i++) {
                 const newItem = document.createElement('li');
                 newItem.classList.add('cart-item', 'mb-2');
                 const itemNameSpan = document.createElement('span');
-                itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+                itemNameSpan.textContent = `${itemName} - $${itemPrice.toFixed(
+                  2
+                )}`;
                 const removeButton = document.createElement('button');
                 removeButton.textContent = 'Remove';
                 removeButton.classList.add(
@@ -648,18 +651,22 @@
           totalPriceElement.textContent = `${cartData.totalPrice.toFixed(2)}`;
         }
       }
-    
+
       // Save cart item to local storage
       function saveCartItem(itemName, itemPrice) {
-        const savedCartData = JSON.parse(localStorage.getItem('cartData')) || { items: {} };
+        const savedCartData = JSON.parse(localStorage.getItem('cartData')) || {
+          items: {},
+        };
         savedCartData.items = cartData.items;
         localStorage.setItem('cartData', JSON.stringify(savedCartData));
         localStorage.setItem(`price-${itemName}`, itemPrice);
       }
-    
+
       // Remove cart item from local storage
       function removeCartItem(itemName, itemPrice) {
-        const savedCartData = JSON.parse(localStorage.getItem('cartData')) || { items: {} };
+        const savedCartData = JSON.parse(localStorage.getItem('cartData')) || {
+          items: {},
+        };
         const itemQuantity = savedCartData.items[itemName];
         if (itemQuantity > 1) {
           savedCartData.items[itemName] = itemQuantity - 1;
@@ -669,13 +676,13 @@
           localStorage.setItem('cartData', JSON.stringify(savedCartData));
           localStorage.removeItem(`price-${itemName}`);
         }
-    
+
         // Update the total price
         cartData.totalPrice -= itemPrice;
         totalPriceElement.textContent = `${cartData.totalPrice.toFixed(2)}`;
         localStorage.setItem('totalPrice', cartData.totalPrice.toString());
       }
-    
+
       // Clear cart items and local storage
       clearButton.addEventListener('click', function () {
         cartItemsElement.innerHTML = '';
@@ -684,11 +691,13 @@
         totalPriceElement.textContent = `${cartData.totalPrice.toFixed(2)}`;
         localStorage.clear();
       });
-    
+
       checkoutButton.addEventListener('click', function () {
-        const savedCartData = JSON.parse(localStorage.getItem('cartData')) || { items: {} };
+        const savedCartData = JSON.parse(localStorage.getItem('cartData')) || {
+          items: {},
+        };
         const cartItems = Object.keys(savedCartData.items);
-    
+
         var modal = document.createElement('div');
         modal.classList.add(
           'fixed',
@@ -698,7 +707,7 @@
           'justify-center',
           'z-50'
         );
-    
+
         var messageDiv = document.createElement('div');
         messageDiv.classList.add(
           'bg-gray-300',
@@ -716,57 +725,90 @@
         modal.appendChild(messageDiv);
 
         var instructions = document.createElement('p');
-        instructions.innerHTML = 'To close the receipt, scroll down<br> and click the button below.';
-        instructions.classList.add('mt--3', 'mb-4', 'uppercase', 'text-xs', 'text-black', 'text-center');
+        instructions.innerHTML =
+          'To close this receipt, scroll down<br> and click the button below.';
+        instructions.classList.add(
+          'mt--3',
+          'mb-4',
+          'uppercase',
+          'text-xs',
+          'text-black',
+          'text-center'
+        );
         messageDiv.appendChild(instructions);
-    
+
         var title = document.createElement('p');
         title.textContent = 'Fresh-Fleet';
-        title.classList.add('mb-4', 'font-bold', 'uppercase', 'text-3xl', 'text-red-700', 'text-center', 'border-2', 'border-red-500');
+        title.classList.add(
+          'mb-4',
+          'font-bold',
+          'uppercase',
+          'text-3xl',
+          'text-red-700',
+          'text-center',
+          'border-2',
+          'border-red-500'
+        );
         messageDiv.appendChild(title);
-    
+
         var thankYou = document.createElement('p');
         thankYou.textContent = 'Thank you for your purchase!';
         thankYou.classList.add('mb-4', 'text-xl', 'text-black', 'text-center');
         messageDiv.appendChild(thankYou);
-    
+
         var yourItems = document.createElement('p');
         yourItems.textContent = 'Your items:';
         yourItems.classList.add('mb-4', 'text-xl', 'text-black', 'text-center');
         messageDiv.appendChild(yourItems);
-    
+
         var itemsList = document.createElement('ol');
         itemsList.classList.add('text-left');
         messageDiv.appendChild(itemsList);
-    
+
         cartItems.forEach(function (itemName) {
           const itemQuantity = savedCartData.items[itemName];
-          const itemPrice = parseFloat(localStorage.getItem(`price-${itemName}`));
+          const itemPrice = parseFloat(
+            localStorage.getItem(`price-${itemName}`)
+          );
           if (!isNaN(itemPrice)) {
             for (let i = 0; i < itemQuantity; i++) {
               var item = document.createElement('li');
               item.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
-              item.classList.add('mb-1', 'px-2', 'py-2', 'text-left', 'text-black');
+              item.classList.add(
+                'mb-1',
+                'px-2',
+                'py-2',
+                'text-left',
+                'text-black'
+              );
               itemsList.appendChild(item);
             }
           }
         });
-    
+
         var totalPriceMessage = document.createElement('p');
-        totalPriceMessage.textContent = `Total Price: $${cartData.totalPrice.toFixed(2)}`;
+        totalPriceMessage.textContent = `Total Price: $${cartData.totalPrice.toFixed(
+          2
+        )}`;
         totalPriceMessage.classList.add('mt-4');
         messageDiv.appendChild(totalPriceMessage);
-    
+
         var closeButton = document.createElement('button');
         closeButton.textContent = 'Close';
-        closeButton.classList.add('mt-6', 'px-4', 'py-2', 'bg-green-600', 'rounded');
+        closeButton.classList.add(
+          'mt-6',
+          'px-4',
+          'py-2',
+          'bg-green-600',
+          'rounded'
+        );
         closeButton.addEventListener('click', function () {
           modal.remove();
         });
         messageDiv.appendChild(closeButton);
-    
+
         document.body.appendChild(modal);
-    
+
         cartItemsElement.innerHTML = '';
         cartData.items = {};
         cartData.totalPrice = 0;
@@ -774,6 +816,5 @@
         localStorage.clear();
       });
     </script>
-    
   </body>
 </html>
